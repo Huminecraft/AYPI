@@ -4,17 +4,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.aypi.events.EventManager;
 import com.aypi.manager.MenuManager;
-import com.aypi.manager.ParticleManager;
 import com.aypi.manager.TimerManager;
 import com.aypi.manager.ZoneManager;
 
 public class Aypi extends JavaPlugin {
 
-	final static String VERSION = "1.3";
+	final static String VERSION = "1.4.1";
 	private static MenuManager menuManager;
 	private static ZoneManager zoneManager;
 	private static TimerManager timerManager;
-	private static ParticleManager particleManager;
 
 	/*
 	 * Class principal de l'API AYPI
@@ -26,7 +24,6 @@ public class Aypi extends JavaPlugin {
 		menuManager = new MenuManager();
 		zoneManager = new ZoneManager();
 		timerManager = new TimerManager();
-		particleManager = new ParticleManager();
 		new EventManager(this);
 	}
 
@@ -44,9 +41,5 @@ public class Aypi extends JavaPlugin {
 
 	public static TimerManager getTimerManager() {
 		return timerManager;
-	}
-	
-	public static ParticleManager getParticleManager() {
-		return particleManager;
 	}
 }

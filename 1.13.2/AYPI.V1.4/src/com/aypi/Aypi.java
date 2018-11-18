@@ -9,7 +9,7 @@ import com.aypi.manager.ZoneManager;
 
 public class Aypi extends JavaPlugin {
 
-	final static String VERSION = "1.3";
+	final static String VERSION = "1.4";
 	private static MenuManager menuManager;
 	private static ZoneManager zoneManager;
 	private static TimerManager timerManager;
