@@ -4,4 +4,7 @@
 <fullyQualifiedTypeName name="com.aypi.Aypi"/>
 <fullyQualifiedTypeName name="com.aypi.manager.ParticleManager"/>
 <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+<fullyQualifiedTypeName name="org.bukkit.event.Listener"/>
+<fullyQualifiedTypeName name="org.bukkit.event.player.PlayerInteractEvent"/>
+<fullyQualifiedTypeName name="com.aypi.events.PlayerInteract"/>
 </qualifiedTypeNameHistroy>
