@@ -19,14 +19,30 @@ public class PlayerMove implements Listener {
 		Location loc = player.getLocation();
 		ZonePriorityBuffer zpb = new ZonePriorityBuffer();
 		
+		boolean isInZone = false;
+		
 		for (Zone zone : Aypi.getZoneManager().getZones()) {
 			if (zone.containLocation(new Location(loc.getWorld(), loc.getBlockX(), loc.getBlockY(), loc.getBlockZ()))) {
 				zpb.addZone(zone);
+				isInZone = true;
+			}
+		}
+		
+		if (!isInZone) {
+			for (Zone zone : Aypi.getZoneManager().getZones()) {
+				if (zone.entityListContainPlayer(player)) {
+					zone.getZoneListener().onPlayerExitZone(player);
+					zone.removeEntity(player);
+				}
 			}
 		}
 		
 		for (Zone zone : zpb.getPriorityZones()) {
-			zone.getZoneListener().onPlayerEnter(player, e);
+			zone.getZoneListener().onPlayerMoveInZone(player, e);
+			if (!zone.entityListContainPlayer(player)) {
+				zone.addEntity(player);
+				zone.getZoneListener().onPlayerEnterZone(player);
+			}
 		}
 		
 	}

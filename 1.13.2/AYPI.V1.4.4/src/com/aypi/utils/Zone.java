@@ -2,8 +2,11 @@ package com.aypi.utils;
 
 import java.util.ArrayList;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 
 import com.aypi.Aypi;
 import com.aypi.utils.inter.ZoneListener;
@@ -22,6 +25,7 @@ public class Zone {
 	private boolean asWhiteList = false;
 	
 	private ArrayList<OfflinePlayer> whiteList = new ArrayList<OfflinePlayer>();
+	private ArrayList<Entity> entities = new ArrayList<Entity>();	
 	
 	private int priority = PRIORITY_BASIC;
 	
@@ -38,6 +42,7 @@ public class Zone {
 		Aypi.getZoneManager().addZone(this);
 		this.square = square;
 		this.zoneListener = zoneListener;
+		updatePlayerInZone();
 	}
 	
 	public void removeZone() {
@@ -84,5 +89,33 @@ public class Zone {
 	public int getPriority() {
 		return priority;
 	}
-
+	
+	public boolean entityIsInZone(Entity entity) {
+		return containLocation(entity.getLocation());
+	}
+	
+	public void updatePlayerInZone() {
+		for (Player player : Bukkit.getOnlinePlayers()) {
+			if (entityIsInZone(player)) {
+				entities.add(player);
+			}
+		}
+	}
+	
+	public void addEntity(Entity entity) {
+		entities.add(entity);
+	}
+	
+	public void removeEntity(Entity entity) {
+		entities.remove(entity);
+	}
+	
+	public boolean entityListContainPlayer(Player player) {
+		for (Entity entity : entities) {
+			if (entity instanceof Player && entity.getName().equalsIgnoreCase(player.getName())) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

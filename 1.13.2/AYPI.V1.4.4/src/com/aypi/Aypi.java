@@ -2,7 +2,7 @@ package com.aypi;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.aypi.events.EventManager;
+import com.aypi.manager.EventManager;
 import com.aypi.manager.MenuManager;
 import com.aypi.manager.ParticleManager;
 import com.aypi.manager.TimerManager;
@@ -10,7 +10,7 @@ import com.aypi.manager.ZoneManager;
 
 public class Aypi extends JavaPlugin {
 
-	final static String VERSION = "1.4.3";
+	final static String VERSION = "1.4.4";
 	private static MenuManager menuManager;
 	private static ZoneManager zoneManager;
 	private static TimerManager timerManager;
