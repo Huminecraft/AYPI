@@ -11,8 +11,8 @@ import com.aypi.utils.inter.ZoneListener;
 public class Zone {
 	
 	public static final int PRIORITY_BASIC = 0;
-	public static final int PRIORITY_ADVENCED = 1;
-	public static final int PRIORITY_HIGHT = 2;
+	public static final int PRIORITY_ADVANCED = 1;
+	public static final int PRIORITY_HIGH = 2;
 	public static final int PRIORITY_ULTRA = 3;
 	
 	

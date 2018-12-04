@@ -7,4 +7,6 @@
 <fullyQualifiedTypeName name="org.bukkit.event.Listener"/>
 <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerInteractEvent"/>
 <fullyQualifiedTypeName name="com.aypi.events.PlayerInteract"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.aypi.utils.ZonePriorityBuffer"/>
 </qualifiedTypeNameHistroy>
