@@ -1,32 +1,40 @@
 package com.aypi.utils.xml.balises;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
 
 import com.aypi.utils.xml.MCBalise;
 
 public class MessageBalise extends MCBalise {
 	
-	private final static String name = "message";
-	private final static String[] args = {};
+	public final static String NAME = "message";
 	
-	private String containt;
+	private boolean broadcast = false;
 	
-	public MessageBalise(String containt) {
-		super(name, args);
+	public MessageBalise() {
+		super(NAME);
 	}
 
 	@Override
-	public void load(Player player) {
-		player.sendMessage(this.containt);
+	public void execute(Player player) {
+		setContent(getContent().replaceAll("%PLAYER%", player.getName()));
+		if (!broadcast)
+			player.sendMessage(getContent());
+		else
+			Bukkit.broadcastMessage(getContent());
 	}
 	
 	@Override
-	public void load() {
+	public void setUpAttributes(NamedNodeMap attributes) {
 		
-	}
-	
-	public String getContaint() {
-		return this.containt;
+		Node broadcast = attributes.getNamedItem("broadcast");
+		
+		if (broadcast != null) {
+			this.broadcast = Boolean.parseBoolean(broadcast.getNodeValue());
+		}
+		
 	}
 
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import com.aypi.utils.xml.MCBalise;
 import com.aypi.utils.xml.XMLFile;
+import com.aypi.utils.xml.balises.MessageBalise;
+import com.aypi.utils.xml.balises.PlayerJoinBalise;
 
 public class XMLFileManager {
 	
@@ -13,6 +15,10 @@ public class XMLFileManager {
 	public XMLFileManager() {
 		xmls = new ArrayList<XMLFile>();
 		mcbs = new ArrayList<MCBalise>();
+		
+		////////////////////////////
+		mcbs.add(new MessageBalise());
+		mcbs.add(new PlayerJoinBalise());
 	}
 	
 	public void addXMLFile(XMLFile xmlFile) {

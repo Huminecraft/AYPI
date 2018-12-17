@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 
 import com.aypi.Aypi;
+import com.aypi.events.BaliseExecutor;
 import com.aypi.events.EntityDamage;
 import com.aypi.events.MenuListener;
 import com.aypi.events.PlayerBreakBlock;
@@ -29,6 +30,7 @@ public class EventManager {
 		pluginManager.registerEvents(new PlayerInteract(), plugin);
 		pluginManager.registerEvents(new TimerFinishEvent(), plugin);
 		pluginManager.registerEvents(new EntityDamage(), plugin);
+		pluginManager.registerEvents(new BaliseExecutor(), plugin);
 		
 		if (plugin.getConfig().getBoolean("playermove"))
 			pluginManager.registerEvents(new PlayerMove(), plugin);

@@ -1,5 +1,7 @@
 package com.aypi;
 
+import java.io.File;
+
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.aypi.manager.EventManager;
@@ -8,6 +10,7 @@ import com.aypi.manager.ParticleManager;
 import com.aypi.manager.TimerManager;
 import com.aypi.manager.XMLFileManager;
 import com.aypi.manager.ZoneManager;
+import com.aypi.utils.xml.XMLFile;
 
 public class Aypi extends JavaPlugin {
 
@@ -31,6 +34,20 @@ public class Aypi extends JavaPlugin {
 		particleManager = new ParticleManager();
 		xmlFileManager = new XMLFileManager();
 		new EventManager(this);
+		
+		if (this.getConfig().getBoolean("xmlloader")) {
+			
+			File file = new File("./plugins/Aypi/xml-reader/");
+			file.mkdirs();
+			System.out.println("[AYPI] "+file.listFiles().length+" file to load found !");
+			for (File f : file.listFiles()) {
+				System.out.println("	- "+f.getName());
+				XMLFile xmlFile = new XMLFile(f);
+				xmlFile.load();
+				Aypi.getXMLFileManager().addXMLFile(xmlFile);
+			}
+			
+		}
 	}
 
 	public void onDisable() {
