@@ -53,6 +53,20 @@ public class XMLFile {
 			
 		} catch(Exception e) {e.printStackTrace();}
 		
+		printBalise(mcBalises);
+		
+	}
+	
+	private void printBalise(ArrayList<MCBalise> mcb) {
+		for (MCBalise m : mcb) {
+			if (m.haveChildren()) {
+				System.out.println(m.getName()+"\\/");
+				printBalise(m.getChildrens());
+			} else {
+				System.out.println("- "+m.getName()+" -");
+			}
+			
+		}
 	}
 	
 	private ArrayList<MCBalise> createBalise(NodeList node) {
