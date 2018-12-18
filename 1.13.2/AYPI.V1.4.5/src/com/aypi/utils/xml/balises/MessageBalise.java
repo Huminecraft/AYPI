@@ -19,11 +19,15 @@ public class MessageBalise extends MCBalise {
 
 	@Override
 	public void execute(Player player) {
-		setContent(getContent().replaceAll("%PLAYER%", player.getName()));
-		if (!broadcast)
-			player.sendMessage(getContent());
-		else
-			Bukkit.broadcastMessage(getContent());
+		if (player != null) {
+			setContent(getContent().replaceAll("%PLAYER%", player.getName()));
+			if (!broadcast)
+				player.sendMessage(getContent());
+			else
+				Bukkit.broadcastMessage(getContent());
+		} else {
+			System.out.println("[AYPI] ERROR: Il n'y a pas de joueur a selectionner pour la balise "+NAME+"...");
+		}
 	}
 	
 	@Override
@@ -35,6 +39,11 @@ public class MessageBalise extends MCBalise {
 			this.broadcast = Boolean.parseBoolean(broadcast.getNodeValue());
 		}
 		
+	}
+	
+	@Override
+	public MCBalise getInstance() {
+		return new MessageBalise();
 	}
 
 }

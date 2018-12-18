@@ -1,3 +1,4 @@
-INDEX VERSION 1.131+D:\programmation\java\workspace\Huminecraft\HumineAYPI\1.13.2\.metadata\.plugins\org.eclipse.jdt.core
-3016508076.index
-1462628399.index
+INDEX VERSION 1.131+/home/aymeric/prog/java/huminecraft/HumineAYPI/1.13.2/.metadata/.plugins/org.eclipse.jdt.core
+2126036335.index
+2535399742.index
+1247006388.index

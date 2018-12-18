@@ -38,17 +38,19 @@ public class XMLFile {
 		    System.out.println("version : " + document.getXmlVersion());
 		    System.out.println("encode : " + document.getXmlEncoding());		
 	        System.out.println("standalone : " + document.getXmlStandalone());
+		    System.out.println("*************ELEMENTS************");
 	        
 	        final Element racine = document.getDocumentElement(); 
 	        
 	        if (racine.getNodeName().equalsIgnoreCase("server")) {
 	        	
 	        	final NodeList racineNoeuds = racine.getChildNodes();
-	        	
-	        	mcBalises.addAll(createBalise(racineNoeuds));
+	        	for (MCBalise m : createBalise(racineNoeuds)) {
+		        	this.mcBalises.add(m);
+	        	}
 	        	
 	        } else {
-	        	System.out.println("ERROR: La racine de votre document doit être une balise <server></server>");
+	        	System.out.println("ERROR: La racine de votre document doit etre une balise <server></server>");
 	        }
 			
 		} catch(Exception e) {e.printStackTrace();}
@@ -60,8 +62,9 @@ public class XMLFile {
 	private void printBalise(ArrayList<MCBalise> mcb) {
 		for (MCBalise m : mcb) {
 			if (m.haveChildren()) {
-				System.out.println(m.getName()+"\\/");
+				System.out.println("\\/"+m.getName());
 				printBalise(m.getChildrens());
+				System.out.println("/\\"+m.getName());
 			} else {
 				System.out.println("- "+m.getName()+" -");
 			}
@@ -78,14 +81,15 @@ public class XMLFile {
 			if (node.item(i).getNodeType() == Node.ELEMENT_NODE) {
 				for (MCBalise mc : Aypi.getXMLFileManager().getMCBalises()) {
 					if (node.item(i).getNodeName().equalsIgnoreCase(mc.getName())) {
-						MCBalise mb = mc;
+						MCBalise mb = mc.getInstance();
 						mb.setUpAttributes(node.item(i).getAttributes());
 						mb.setContent(node.item(i).getTextContent());
-						for (MCBalise children : createBalise(node.item(i).getChildNodes())) {
-							mb.addChildren(children);
+						if (node.item(i).hasChildNodes()) {
+							for (MCBalise children : createBalise(node.item(i).getChildNodes())) {
+								mb.addChildren(children);
+							}
 						}
-						this.mcBalises.add(mb);
-						break;
+						mcBalises.add(mb);
 					}
 				}
 				
@@ -120,29 +124,8 @@ public class XMLFile {
 	public void executesAllBalises(String name, Player player) {
 		
 		for (MCBalise mcb : mcBalises) {
-			System.out.println(mcb.getName());
 			if (mcb.getName().equalsIgnoreCase(name)) {
 				mcb.execute(player);
-			}
-			
-			if (mcb.haveChildren()) {
-				executesAllBalises(mcb, name, player);
-			}
-			
-		}
-		
-	}
-	
-	public void executesAllBalises(MCBalise mcBalise, String name, Player player) {
-		
-		for (MCBalise mcb : mcBalise.getChildrens()) {
-			
-			if (mcb.getName().equalsIgnoreCase(name)) {
-				mcb.execute(player);
-			}
-			
-			if (mcb.haveChildren()) {
-				executesAllBalises(mcb, name, player);
 			}
 			
 		}
