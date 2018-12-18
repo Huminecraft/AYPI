@@ -21,6 +21,8 @@ public abstract class MCBalise {
 	
 	public abstract void execute(Player player);
 	
+	public abstract MCBalise getInstance();
+	
 	public String getName() {
 		return name;
 	}

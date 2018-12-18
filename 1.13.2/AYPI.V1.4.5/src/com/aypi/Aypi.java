@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.aypi.events.BaliseExecutor;
 import com.aypi.manager.EventManager;
 import com.aypi.manager.MenuManager;
 import com.aypi.manager.ParticleManager;
@@ -48,10 +49,15 @@ public class Aypi extends JavaPlugin {
 			}
 			
 		}
+		
+		System.out.println("---------------[SERVER START]---------------");
+		BaliseExecutor.onServerStart();
 	}
 
 	public void onDisable() {
 		System.out.println("Aypi V" + VERSION + " unloaded");
+		System.out.println("---------------[SERVER STOP]---------------");
+		BaliseExecutor.onServerStop();
 	}
 
 	public static MenuManager getMenuManager() {

@@ -4,8 +4,14 @@ import java.util.ArrayList;
 
 import com.aypi.utils.xml.MCBalise;
 import com.aypi.utils.xml.XMLFile;
+import com.aypi.utils.xml.balises.LocationBalise;
+import com.aypi.utils.xml.balises.LogBalise;
 import com.aypi.utils.xml.balises.MessageBalise;
 import com.aypi.utils.xml.balises.PlayerJoinBalise;
+import com.aypi.utils.xml.balises.PlayerLeftBalise;
+import com.aypi.utils.xml.balises.SoundBalise;
+import com.aypi.utils.xml.balises.StartServerBalise;
+import com.aypi.utils.xml.balises.StopServerBalise;
 
 public class XMLFileManager {
 	
@@ -17,8 +23,15 @@ public class XMLFileManager {
 		mcbs = new ArrayList<MCBalise>();
 		
 		////////////////////////////
-		mcbs.add(new MessageBalise());
+		mcbs.add(new StartServerBalise());
+		mcbs.add(new StopServerBalise());
 		mcbs.add(new PlayerJoinBalise());
+		mcbs.add(new PlayerLeftBalise());
+		
+		mcbs.add(new MessageBalise());
+		mcbs.add(new SoundBalise());
+		mcbs.add(new LocationBalise());
+		mcbs.add(new LogBalise());
 	}
 	
 	public void addXMLFile(XMLFile xmlFile) {

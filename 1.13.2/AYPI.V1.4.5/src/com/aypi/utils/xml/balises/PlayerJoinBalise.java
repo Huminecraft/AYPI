@@ -25,6 +25,9 @@ public class PlayerJoinBalise extends MCBalise {
 		
 	}
 
-	
+	@Override
+	public MCBalise getInstance() {
+		return new PlayerJoinBalise();
+	}
 	
 }
