@@ -14,14 +14,14 @@ public class PlayerJoinBalise extends MCBalise {
 	}
 
 	@Override
-	public void execute(Player player) {
+	public void customExecute(Player player) {
 		for (MCBalise mcb : getChildrens()) {
 			mcb.execute(player);
 		}
 	}
 
 	@Override
-	public void setUpAttributes(NamedNodeMap namedNodeMap) {
+	public void setUpCustomAttributes(NamedNodeMap namedNodeMap) {
 		
 	}
 

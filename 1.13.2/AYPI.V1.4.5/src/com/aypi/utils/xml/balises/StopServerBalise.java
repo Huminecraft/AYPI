@@ -14,12 +14,12 @@ public class StopServerBalise extends MCBalise {
 	}
 
 	@Override
-	public void setUpAttributes(NamedNodeMap namedNodeMap) {
+	public void setUpCustomAttributes(NamedNodeMap namedNodeMap) {
 		
 	}
 
 	@Override
-	public void execute(Player player) {
+	public void customExecute(Player player) {
 		for (MCBalise mcBalise : getChildrens()) {
 			mcBalise.execute(player);
 		}

@@ -14,11 +14,11 @@ public class LogBalise extends MCBalise {
 	}
 
 	@Override
-	public void setUpAttributes(NamedNodeMap namedNodeMap) {
+	public void setUpCustomAttributes(NamedNodeMap namedNodeMap) {
 	}
 
 	@Override
-	public void execute(Player player) {
+	public void customExecute(Player player) {
 		String line = getContent();
 		if (player != null) {
 			line = line.replaceAll("%PLAYER%", player.getName());

@@ -39,6 +39,7 @@ public class BaliseExecutor implements Listener {
 		for (XMLFile xmlFile : Aypi.getXMLFileManager().getXMLFile()) {
 			xmlFile.executesAllBalises(name, player);
 		}
+		
 	}
 	
 

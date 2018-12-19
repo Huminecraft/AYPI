@@ -19,7 +19,7 @@ public class MessageBalise extends MCBalise {
 	}
 
 	@Override
-	public void execute(Player player) {
+	public void customExecute(Player player) {
 		if (player != null) {
 			String line = getContent();
 			line = line.replaceAll("%PLAYER%", player.getName());
@@ -33,7 +33,7 @@ public class MessageBalise extends MCBalise {
 	}
 	
 	@Override
-	public void setUpAttributes(NamedNodeMap attributes) {
+	public void setUpCustomAttributes(NamedNodeMap attributes) {
 		
 		Node broadcast = attributes.getNamedItem("broadcast");
 		

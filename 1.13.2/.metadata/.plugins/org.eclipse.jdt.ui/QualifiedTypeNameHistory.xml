@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="org.bukkit.Particle"/>
 <fullyQualifiedTypeName name="com.aypi.manager.ParticleManager"/>
 <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerInteractEvent"/>
@@ -16,4 +17,22 @@
 <fullyQualifiedTypeName name="com.aypi.Aypi"/>
 <fullyQualifiedTypeName name="com.aypi.utils.xml.MCBalise"/>
 <fullyQualifiedTypeName name="org.bukkit.Sound"/>
+=======
+    <fullyQualifiedTypeName name="org.bukkit.Particle"/>
+    <fullyQualifiedTypeName name="com.aypi.manager.ParticleManager"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerInteractEvent"/>
+    <fullyQualifiedTypeName name="com.aypi.events.PlayerInteract"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.aypi.utils.ZonePriorityBuffer"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageEvent"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.Listener"/>
+    <fullyQualifiedTypeName name="org.bukkit.entity.Entity"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="com.aypi.events.EntityDamage"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageByEntityEvent"/>
+    <fullyQualifiedTypeName name="org.bukkit.entity.HumanEntity"/>
+    <fullyQualifiedTypeName name="com.aypi.Aypi"/>
+    <fullyQualifiedTypeName name="com.aypi.utils.xml.MCBalise"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
+>>>>>>> 92806eb2fc7c7ffc5809a19c0debf94eb36edb24
 </qualifiedTypeNameHistroy>

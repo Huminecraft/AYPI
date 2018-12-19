@@ -13,15 +13,21 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.aypi.Aypi;
+import com.aypi.utils.xml.script.ScriptManager;
 
 public class XMLFile {
 	
 	private File file;
 	private ArrayList<MCBalise> mcBalises;
+
+	private ScriptManager scriptManager;
 	
 	public XMLFile(File file) {
 		this.file = file;
 		this.mcBalises = new ArrayList<MCBalise>();
+		this.scriptManager = new ScriptManager();
+		
+		System.out.println(scriptManager.compileCodeBooleanValue("NOT true OR false"));
 	}
 	
 	public void load() {
@@ -119,6 +125,10 @@ public class XMLFile {
 	
 	public File getFile() {
 		return file;
+	}
+	
+	public ScriptManager getScriptManager() {
+		return this.scriptManager;
 	}
 
 	public void executesAllBalises(String name, Player player) {

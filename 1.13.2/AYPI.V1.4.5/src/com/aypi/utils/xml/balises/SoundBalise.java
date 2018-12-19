@@ -5,6 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
 
 import com.aypi.utils.xml.MCBalise;
 
@@ -23,10 +24,12 @@ public class SoundBalise extends LocationBaliseAdaptor {
 	}
 
 	@Override
-	public void setUpAttributes(NamedNodeMap attributes) {
+	public void setUpCustomAttributes(NamedNodeMap attributes) {
+		
+		Node node = attributes.getNamedItem("broadcast");
 		
 		String value = "";
-		if (attributes.getNamedItem("broadcast").getNodeValue() != null) 
+		if (node != null) 
 			value = attributes.getNamedItem("broadcast").getNodeValue();
 		
 		if (!value.equalsIgnoreCase("")) {
@@ -35,7 +38,7 @@ public class SoundBalise extends LocationBaliseAdaptor {
 	}
 
 	@Override
-	public void execute(Player player) {
+	public void customExecute(Player player) {
 		
 		if (player == null && !broadcast) {
 			
