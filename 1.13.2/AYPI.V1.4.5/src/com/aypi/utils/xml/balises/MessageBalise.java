@@ -18,7 +18,7 @@ public class MessageBalise extends MCBalise {
 	}
 
 	@Override
-	public void execute(Player player) {
+	public void customExecute(Player player) {
 		if (player != null) {
 			setContent(getContent().replaceAll("%PLAYER%", player.getName()));
 			if (!broadcast)
@@ -31,7 +31,7 @@ public class MessageBalise extends MCBalise {
 	}
 	
 	@Override
-	public void setUpAttributes(NamedNodeMap attributes) {
+	public void setUpCustomAttributes(NamedNodeMap attributes) {
 		
 		Node broadcast = attributes.getNamedItem("broadcast");
 		

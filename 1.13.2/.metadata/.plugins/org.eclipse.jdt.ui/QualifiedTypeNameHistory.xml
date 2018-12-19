@@ -15,4 +15,5 @@
     <fullyQualifiedTypeName name="org.bukkit.entity.HumanEntity"/>
     <fullyQualifiedTypeName name="com.aypi.Aypi"/>
     <fullyQualifiedTypeName name="com.aypi.utils.xml.MCBalise"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
 </qualifiedTypeNameHistroy>

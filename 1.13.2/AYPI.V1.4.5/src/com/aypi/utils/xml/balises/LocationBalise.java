@@ -19,7 +19,7 @@ public class LocationBalise extends MCBalise {
 	}
 
 	@Override
-	public void setUpAttributes(NamedNodeMap namedNodeMap) {
+	public void setUpCustomAttributes(NamedNodeMap namedNodeMap) {
 		
 		Node nWorld = namedNodeMap.getNamedItem("world");
 		Node nX = namedNodeMap.getNamedItem("x");
@@ -42,7 +42,7 @@ public class LocationBalise extends MCBalise {
 	}
 
 	@Override
-	public void execute(Player player) {
+	public void customExecute(Player player) {
 		for (MCBalise mcBalise : getChildrens()) {
 			if (mcBalise instanceof LocationBaliseAdaptor) {
 				((LocationBaliseAdaptor) mcBalise).setLocation(location);

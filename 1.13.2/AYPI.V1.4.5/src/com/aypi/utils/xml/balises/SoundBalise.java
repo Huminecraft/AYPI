@@ -23,7 +23,7 @@ public class SoundBalise extends LocationBaliseAdaptor {
 	}
 
 	@Override
-	public void setUpAttributes(NamedNodeMap attributes) {
+	public void setUpCustomAttributes(NamedNodeMap attributes) {
 		
 		String value = attributes.getNamedItem("broadcast").getNodeValue();
 		
@@ -33,7 +33,7 @@ public class SoundBalise extends LocationBaliseAdaptor {
 	}
 
 	@Override
-	public void execute(Player player) {
+	public void customExecute(Player player) {
 		
 		if (player == null && !broadcast) {
 			
