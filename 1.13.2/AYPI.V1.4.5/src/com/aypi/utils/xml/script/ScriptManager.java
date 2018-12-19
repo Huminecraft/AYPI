@@ -13,44 +13,63 @@ public class ScriptManager {
 	}
 	
 	//NUMBER
-	public double product(Variable v1, Variable v2) {
+	public double mathOperator(Variable v1, Variable v2, MathOperator operator) {
 		double product = 0;
 		if (v1.getType() == VariableType.NUMBER && v2.getType() == VariableType.NUMBER) {
-			product = Double.parseDouble(v1.getValue()) + Double.parseDouble(v2.getValue());
+			
+			mathComparator(Double.parseDouble(v1.getValue()), Double.parseDouble(v2.getValue()), operator);
+		
 		} else {
 			System.out.println("Error operator "+v1.getType()+" "+v2.getType()+" not compatible");
 		}
 		return product;
 	}
 	
-	public double difference(Variable v1, Variable v2) {
-		double difference = 0;
-		if (v1.getType() == VariableType.NUMBER && v2.getType() == VariableType.NUMBER) {
-			difference = Double.parseDouble(v1.getValue()) - Double.parseDouble(v2.getValue());
-		} else {
-			System.out.println("Error operator "+v1.getType()+" "+v2.getType()+" not compatible");
-		}
-		return difference;
+	public double mathOperator(double v1, double v2, MathOperator operator) {
+		double product = 0;
+		if (operator == MathOperator.ADDITION)
+			product = v1 + v2;
+		else if (operator == MathOperator.SUBSTRACTION)
+			product = v1 - v2;
+		else if (operator == MathOperator.MULTIPLICATION)
+			product = v1 * v2;
+		else if (operator == MathOperator.DIVISION)
+			product = v1 / v2;
+		else
+			System.out.println("Error operator "+operator+" not compatible");
+		return product;
 	}
 	
-	public double multiplie(Variable v1, Variable v2) {
-		double multiplie = 0;
+	
+	
+	public boolean mathComparator(Variable v1, Variable v2, MathOperator operator) {
+		
 		if (v1.getType() == VariableType.NUMBER && v2.getType() == VariableType.NUMBER) {
-			multiplie = Double.parseDouble(v1.getValue()) * Double.parseDouble(v2.getValue());
+			
+			return mathComparator(Double.parseDouble(v1.getValue()), Double.parseDouble(v2.getValue()), operator);
+		
 		} else {
 			System.out.println("Error operator "+v1.getType()+" "+v2.getType()+" not compatible");
+			return false;
 		}
-		return multiplie;
 	}
 	
-	public double divide(Variable v1, Variable v2) {
-		double multiplie = 0;
-		if (v1.getType() == VariableType.NUMBER && v2.getType() == VariableType.NUMBER) {
-			multiplie = Double.parseDouble(v1.getValue()) / Double.parseDouble(v2.getValue());
-		} else {
-			System.out.println("Error operator "+v1.getType()+" "+v2.getType()+" not compatible");
-		}
-		return multiplie;
+	public boolean mathComparator(double v1, double v2, MathOperator operator) {
+		
+		if (operator == MathOperator.EQUALS)
+			return v1 == v2;
+		if (operator == MathOperator.INFERIOR)
+			return v1 < v2;
+		if (operator == MathOperator.SUPERIOR)
+				return v1 > v2;
+		if (operator == MathOperator.INFERIOR_OR_EQUALS)
+			return v1 <= v2;
+		if (operator == MathOperator.SUPERIOR_OR_EQUALS)
+			return v1 >= v2;
+		else
+			return false;
+		
+		
 	}
 	
 	//BOOLEAN
@@ -90,7 +109,59 @@ public class ScriptManager {
 		return this.vs;
 	}
 	
+	private String createString(char[] tab, int start, int end)  {
+		String str = "";
+		for (int i = start ; i < end ; i++) {
+			str+=tab[i];
+		}
+		return str;
+	}
+	
 	public boolean compileCodeBooleanValue(String code) {
+		
+		//DECOMPOSE
+		
+		char[] cCode = code.toCharArray();
+		
+		boolean searchBalise = false;
+		int start = 0;
+		int finish = 0;
+		
+		for (int i = 0 ; i < cCode.length ; i++) {
+			if (cCode[i] == '(') {
+				start = i+1;
+				searchBalise = true;
+				break;
+			}
+		}
+		
+		if (searchBalise) {
+			boolean find = false;
+			for (int i = (cCode.length - 1) ; i >= 0 ; i--) {
+				if (cCode[i] == ')') {
+					finish = i;
+					find = true;
+					break;
+				}
+			}
+			
+			
+			
+			if (find) {
+				String old = createString(cCode, start, finish);
+				String translateValue = ""+compileCodeBooleanValue(createString(cCode, start, finish));
+				code = code.replace(old, translateValue);
+			} else {
+				System.out.println("Error you need to close ')' !");
+			}
+		}
+		
+		//CALCULATE
+		
+		code = code.replace("(", "").replace(")", "");
+		
+		code = doCalcule(code);
+		
 		System.out.println("[DEBUG] "+code);
 		String[] args = code.split(" ");
 		
@@ -99,18 +170,29 @@ public class ScriptManager {
 		
 		for (int i = 0 ; i < args.length ; i++) {
 			
+			
+			//BOOL
 			if (args[i].equalsIgnoreCase("true") || args[i].equalsIgnoreCase("false")) {
 				System.out.println("[DEBUG] "+finalBool+" "+lo+" "+stringToBool(args[i])+" = "+logicOperator(finalBool, stringToBool(args[i]), lo));
 				finalBool = logicOperator(finalBool, stringToBool(args[i]), lo);
 				lo = LogicOperator.NULL;
+			} else if (isVariable(args[i])) {
+				
+				System.out.println("[DEBUG] "+finalBool+" "+lo+" "+stringToBool(getVariable(args[i]).getValue())+" = "+logicOperator(finalBool, stringToBool(getVariable(args[i]).getValue()), lo));
+				finalBool = logicOperator(finalBool, stringToBool(getVariable(args[i]).getValue()), lo);
+				
 			} else if (isLogicOperator(args[i])) {
 				
 				LogicOperator l = LogicOperator.valueOf(args[i]);
 				if (l == LogicOperator.NOT) {
-					if (i+1 < args.length && (isVariable(args[i+1]) || (args[i].equalsIgnoreCase("true") || args[i].equalsIgnoreCase("false")))) {
-						args[i+1] = ""+!stringToBool(args[i+1]);
+					if (i+1 < args.length && (isVariable(args[i+1]) || (args[i+1].equalsIgnoreCase("true") || args[i+1].equalsIgnoreCase("false")))) {
+						if (isVariable(args[i+1])) {
+							args[i+1] = ""+!stringToBool(getVariable(args[i+1]).getValue());
+						} else {
+							args[i+1] = ""+!stringToBool(args[i+1]);
+						}
 					} else {
-						System.out.println("Error: the argument NOT need a coorect value...");
+						System.out.println("Error: the argument 'NOT' need a coorect value...");
 					}
 				} else {
 					lo = LogicOperator.valueOf(args[i]);
@@ -118,11 +200,70 @@ public class ScriptManager {
 				
 			}
 			
+			//MATH
+			
+			else if (MathOperator.getOperator(args[i]) != MathOperator.NULL) {
+				
+				if (MathOperator.isComparator(args[i])) {
+					if (i >= 1 && i+1 <= args.length) {
+						if (isNumber(args[i-1]) && isNumber(args[i+1])) {
+							finalBool = logicOperator(finalBool, mathComparator(Double.parseDouble(args[i-1]), Double.parseDouble(args[i+1]), MathOperator.getOperator(args[i])), lo);
+						} else if (isVariable(args[i - 1]) && isVariable(args[i + 1])){
+							finalBool = logicOperator(finalBool, mathComparator(getVariable(args[i-1]), getVariable(args[i+1]), MathOperator.getOperator(args[i])), lo);
+						} else {
+							System.out.println("Error: Operator "+args[i-1]+" "+args[i]+" "+args[i+1]+" impossible to calculate ...");
+						}
+					} else {
+						System.out.println("Operator "+args[i]+" error bad use ...");
+					}
+				}
+			}
+					
 		}
 		
 		return finalBool;
 		
 	} 
+	
+	private String doCalcule(String code) {
+		String[] args = code.split(" ");
+		System.out.println(code);
+		
+		for (int i = 0 ; i < args.length ; i++) {
+			
+			if (MathOperator.getOperator(args[i]) != MathOperator.NULL) {
+				
+					if (!MathOperator.isComparator(args[i])) {
+						
+						if (i >= 1 && i+1 <= args.length) {
+							
+							if (isNumber(args[i-1]) && isNumber(args[i+1])) {
+								code = code.replace(args[i-1]+" "+args[i]+" "+args[i+1], ""+mathOperator(Double.parseDouble(args[i-1]), Double.parseDouble(args[i+1]), MathOperator.getOperator(args[i])));
+								code = doCalcule(code);
+								break;
+							} else if (isVariable(args[i - 1]) && isVariable(args[i + 1])){
+								code = code.replace(args[i-1]+" "+args[i]+" "+args[i+1], ""+mathOperator(getVariable(args[i - 1]), getVariable(args[i + 1]), MathOperator.getOperator(args[i])));
+								code = doCalcule(code);
+								break;
+							} else {
+								System.out.println("Error: Operator "+args[i-1]+" "+args[i]+" "+args[i+1]+" impossible to calculate ...");
+							}
+							
+						} else {
+							System.out.println("Operator "+args[i]+" error bad use ...");
+						}
+							
+						
+					}
+				
+					
+			}
+			
+		}
+		
+		System.out.println(code);
+		return code;
+	}
 	
 	boolean stringToBool(String bool) {
 		if (bool.equalsIgnoreCase("true")) {
@@ -139,6 +280,20 @@ public class ScriptManager {
 		return true;
 	}
 	
+	public boolean isNumber(String name) {
+		char[] cTab = name.toCharArray();
+		for (char c : cTab) {
+			if (!isNumberChar(c)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	private boolean isNumberChar(char c) {
+		return c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9' || c == '.';  
+	}
+	
 	public boolean isVariable(String name) {
 		return getVariable(name) != null;
 	}
@@ -152,6 +307,19 @@ public class ScriptManager {
 		}
 		
 		return null;
+	}
+	
+	public void addVariable(Variable variable) {
+		vs.add(variable);
+	}
+	
+	public void removeVariable(Variable variable) {
+		for (int i = 0 ; i < vs.size() ; i++) {
+			if (vs.get(i).getName().equalsIgnoreCase(variable.getName())) {
+				vs.remove(i);
+				i--;
+			}
+		}
 	}
 	
 }

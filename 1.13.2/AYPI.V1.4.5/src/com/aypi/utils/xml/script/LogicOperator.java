@@ -5,12 +5,12 @@ public enum LogicOperator {
 	AND, OR, NOT, NULL;
 	
 	static LogicOperator getOperator(String operateur) {
-		if(operateur.equalsIgnoreCase(AND.toString()))
+		if (operateur.equalsIgnoreCase(AND.toString()))
 			return AND;
-		else if(operateur.equalsIgnoreCase(OR.toString()))
+		else if (operateur.equalsIgnoreCase(OR.toString()))
 			return OR;
-		else if(operateur.equalsIgnoreCase(NULL.toString()))
-			return OR;
+		else if (operateur.equalsIgnoreCase(NOT.toString()))
+			return NOT;
 		else
 			return NULL;
 	}

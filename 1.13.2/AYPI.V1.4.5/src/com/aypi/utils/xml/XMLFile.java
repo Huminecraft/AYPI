@@ -14,6 +14,8 @@ import org.w3c.dom.NodeList;
 
 import com.aypi.Aypi;
 import com.aypi.utils.xml.script.ScriptManager;
+import com.aypi.utils.xml.script.Variable;
+import com.aypi.utils.xml.script.VariableType;
 
 public class XMLFile {
 	
@@ -27,7 +29,13 @@ public class XMLFile {
 		this.mcBalises = new ArrayList<MCBalise>();
 		this.scriptManager = new ScriptManager();
 		
-		System.out.println(scriptManager.compileCodeBooleanValue("NOT true OR false"));
+		Variable v1 = new Variable("first", "false", VariableType.BOOLEAN);
+		Variable v2 = new Variable("second", "false", VariableType.BOOLEAN);
+		
+		scriptManager.addVariable(v1);
+		scriptManager.addVariable(v2);
+		
+		System.out.println(scriptManager.compileCodeBooleanValue("(1 + 1) == 2"));
 	}
 	
 	public void load() {
