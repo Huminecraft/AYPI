@@ -35,7 +35,7 @@ public class XMLFile {
 		scriptManager.addVariable(v1);
 		scriptManager.addVariable(v2);
 		
-		System.out.println(scriptManager.compileCodeBooleanValue("(1 + 1) == 2"));
+		System.out.println(scriptManager.compileCodeBooleanValue("( 1 + 8 ) == 2"));
 	}
 	
 	public void load() {

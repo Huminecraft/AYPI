@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.xml.soap.Node"/>
-<fullyQualifiedTypeName name="org.w3c.dom.NamedNodeMap"/>
-<fullyQualifiedTypeName name="org.w3c.dom.Node"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.script.VariableType"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.script.Variable"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.script.MathOperator"/>
-<fullyQualifiedTypeName name="javax.swing.text.Document"/>
+    <fullyQualifiedTypeName name="javax.xml.soap.Node"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.NamedNodeMap"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
+    <fullyQualifiedTypeName name="com.aypi.utils.xml.script.VariableType"/>
+    <fullyQualifiedTypeName name="com.aypi.utils.xml.script.Variable"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="com.aypi.utils.xml.script.MathOperator"/>
+    <fullyQualifiedTypeName name="javax.swing.text.Document"/>
 </qualifiedTypeNameHistroy>

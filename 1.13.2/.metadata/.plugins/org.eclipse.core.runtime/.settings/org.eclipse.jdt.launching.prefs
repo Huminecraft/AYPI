@@ -2,4 +2,4 @@
 <<<<<<<=HEAD
 >>>>>>>=92806eb2fc7c7ffc5809a19c0debf94eb36edb24
 eclipse.preferences.version=1
-org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1545241586269" defaultVMConnector\="">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1545241586269" name\="jdk1.8.0_181" path\="C\:\\Program Files\\Java\\jdk1.8.0_181"/>\r\n</vmType>\r\n</vmSettings>\r\n
+org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1545307719469" defaultVMConnector\="">\n    <vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\n        <vm id\="1545241586269" name\="jdk1.8.0_181" path\="/home/aymeric/prog/java/huminecraft/HumineAYPI/C\:\\Program Files\\Java\\jdk1.8.0_181"/>\n        <vm id\="1545307719469" name\="jdk-11" path\="/usr/lib/jvm/jdk-11"/>\n    </vmType>\n</vmSettings>\n

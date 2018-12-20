@@ -139,7 +139,7 @@ public class ScriptManager {
 			boolean find = false;
 			for (int i = (cCode.length - 1) ; i >= 0 ; i--) {
 				if (cCode[i] == ')') {
-					finish = i;
+					finish = i-1;
 					find = true;
 					break;
 				}
@@ -149,7 +149,13 @@ public class ScriptManager {
 			
 			if (find) {
 				String old = createString(cCode, start, finish);
-				String translateValue = ""+compileCodeBooleanValue(createString(cCode, start, finish));
+				
+				String translateValue;
+				if (containComparationOperator(createString(cCode, start, finish))) {
+					translateValue = ""+compileCodeBooleanValue(createString(cCode, start, finish));
+				} else {
+					translateValue = ""+doCalcule(createString(cCode, start, finish));
+				}
 				code = code.replace(old, translateValue);
 			} else {
 				System.out.println("Error you need to close ')' !");
@@ -158,11 +164,13 @@ public class ScriptManager {
 		
 		//CALCULATE
 		
+		System.out.println(code+" <--");
 		code = code.replace("(", "").replace(")", "");
 		
+		System.out.println("--------"+code);
 		code = doCalcule(code);
+		System.out.println("--------"+code);
 		
-		System.out.println("[DEBUG] "+code);
 		String[] args = code.split(" ");
 		
 		boolean finalBool = true;
@@ -173,12 +181,10 @@ public class ScriptManager {
 			
 			//BOOL
 			if (args[i].equalsIgnoreCase("true") || args[i].equalsIgnoreCase("false")) {
-				System.out.println("[DEBUG] "+finalBool+" "+lo+" "+stringToBool(args[i])+" = "+logicOperator(finalBool, stringToBool(args[i]), lo));
 				finalBool = logicOperator(finalBool, stringToBool(args[i]), lo);
 				lo = LogicOperator.NULL;
 			} else if (isVariable(args[i])) {
 				
-				System.out.println("[DEBUG] "+finalBool+" "+lo+" "+stringToBool(getVariable(args[i]).getValue())+" = "+logicOperator(finalBool, stringToBool(getVariable(args[i]).getValue()), lo));
 				finalBool = logicOperator(finalBool, stringToBool(getVariable(args[i]).getValue()), lo);
 				
 			} else if (isLogicOperator(args[i])) {
@@ -225,9 +231,13 @@ public class ScriptManager {
 		
 	} 
 	
+	private boolean containComparationOperator(String code) {
+		
+		return false;
+	}
+	
 	private String doCalcule(String code) {
 		String[] args = code.split(" ");
-		System.out.println(code);
 		
 		for (int i = 0 ; i < args.length ; i++) {
 			
@@ -261,7 +271,6 @@ public class ScriptManager {
 			
 		}
 		
-		System.out.println(code);
 		return code;
 	}
 	
