@@ -4,12 +4,10 @@ public class Variable {
 
 	private String name;
 	private String value;
-	private VariableType type;
 	
-	public Variable(String name, String value, VariableType type) {
+	public Variable(String name, String value) {
 		this.name = name;
 		this.value = value;
-		this.type = type;
 	}
 	
 	public String getName() {
@@ -20,8 +18,8 @@ public class Variable {
 		return this.value;
 	}
 	
-	public VariableType getType() {
-		return this.type;
+	public void setValue(String value) {
+		this.value = value;
 	}
 	
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import com.aypi.utils.xml.MCBalise;
 import com.aypi.utils.xml.XMLFile;
+import com.aypi.utils.xml.balises.FalseBalise;
+import com.aypi.utils.xml.balises.IfBalise;
 import com.aypi.utils.xml.balises.LocationBalise;
 import com.aypi.utils.xml.balises.LogBalise;
 import com.aypi.utils.xml.balises.MessageBalise;
@@ -12,6 +14,9 @@ import com.aypi.utils.xml.balises.PlayerLeftBalise;
 import com.aypi.utils.xml.balises.SoundBalise;
 import com.aypi.utils.xml.balises.StartServerBalise;
 import com.aypi.utils.xml.balises.StopServerBalise;
+import com.aypi.utils.xml.balises.TrueBalise;
+import com.aypi.utils.xml.balises.VariableBalise;
+import com.aypi.utils.xml.balises.WhileBalise;
 
 public class XMLFileManager {
 	
@@ -32,6 +37,11 @@ public class XMLFileManager {
 		mcbs.add(new SoundBalise());
 		mcbs.add(new LocationBalise());
 		mcbs.add(new LogBalise());
+		mcbs.add(new IfBalise());
+		mcbs.add(new TrueBalise());
+		mcbs.add(new FalseBalise());
+		mcbs.add(new VariableBalise());
+		mcbs.add(new WhileBalise());
 	}
 	
 	public void addXMLFile(XMLFile xmlFile) {

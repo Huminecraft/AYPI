@@ -13,9 +13,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.aypi.Aypi;
+import com.aypi.utils.xml.balises.VariableBalise;
 import com.aypi.utils.xml.script.ScriptManager;
-import com.aypi.utils.xml.script.Variable;
-import com.aypi.utils.xml.script.VariableType;
 
 public class XMLFile {
 	
@@ -28,14 +27,6 @@ public class XMLFile {
 		this.file = file;
 		this.mcBalises = new ArrayList<MCBalise>();
 		this.scriptManager = new ScriptManager();
-		
-		Variable v1 = new Variable("first", "false", VariableType.BOOLEAN);
-		Variable v2 = new Variable("second", "false", VariableType.BOOLEAN);
-		
-		scriptManager.addVariable(v1);
-		scriptManager.addVariable(v2);
-		
-		System.out.println(scriptManager.compileCodeBooleanValue("( 1 + 8 ) == 2"));
 	}
 	
 	public void load() {
@@ -61,10 +52,13 @@ public class XMLFile {
 	        	final NodeList racineNoeuds = racine.getChildNodes();
 	        	for (MCBalise m : createBalise(racineNoeuds)) {
 		        	this.mcBalises.add(m);
+		        	if (m instanceof VariableBalise) {
+		        		m.execute(null, this);
+		        	}
 	        	}
 	        	
 	        } else {
-	        	System.out.println("ERROR: La racine de votre document doit etre une balise <server></server>");
+	        	System.out.println("ERROR: your balise root should be 'server'.");
 	        }
 			
 		} catch(Exception e) {e.printStackTrace();}
@@ -97,7 +91,7 @@ public class XMLFile {
 					if (node.item(i).getNodeName().equalsIgnoreCase(mc.getName())) {
 						MCBalise mb = mc.getInstance();
 						mb.setUpAttributes(node.item(i).getAttributes());
-						mb.setContent(node.item(i).getTextContent());
+						mb.setContent(node.item(i).getTextContent(), this, 0);
 						if (node.item(i).hasChildNodes()) {
 							for (MCBalise children : createBalise(node.item(i).getChildNodes())) {
 								mb.addChildren(children);
@@ -143,7 +137,7 @@ public class XMLFile {
 		
 		for (MCBalise mcb : mcBalises) {
 			if (mcb.getName().equalsIgnoreCase(name)) {
-				mcb.execute(player);
+				mcb.execute(player, this);
 			}
 			
 		}

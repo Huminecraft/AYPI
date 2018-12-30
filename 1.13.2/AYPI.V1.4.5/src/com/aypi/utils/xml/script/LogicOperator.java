@@ -2,7 +2,7 @@ package com.aypi.utils.xml.script;
 
 public enum LogicOperator {
 
-	AND, OR, NOT, NULL;
+	AND, OR, NOT, XOR;
 	
 	static LogicOperator getOperator(String operateur) {
 		if (operateur.equalsIgnoreCase(AND.toString()))
@@ -11,7 +11,9 @@ public enum LogicOperator {
 			return OR;
 		else if (operateur.equalsIgnoreCase(NOT.toString()))
 			return NOT;
+		else if (operateur.equalsIgnoreCase(XOR.toString()))
+			return XOR;
 		else
-			return NULL;
+			return null;
 	}
 }

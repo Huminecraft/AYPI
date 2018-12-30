@@ -7,6 +7,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
 import com.aypi.utils.xml.MCBalise;
+import com.aypi.utils.xml.XMLFile;
 
 public class LocationBalise extends MCBalise {
 
@@ -42,11 +43,11 @@ public class LocationBalise extends MCBalise {
 	}
 
 	@Override
-	public void customExecute(Player player) {
+	public void customExecute(Player player, XMLFile xmlFile) {
 		for (MCBalise mcBalise : getChildrens()) {
 			if (mcBalise instanceof LocationBaliseAdaptor) {
 				((LocationBaliseAdaptor) mcBalise).setLocation(location);
-				mcBalise.execute(player);
+				mcBalise.execute(player, xmlFile);
 			}
 		}
 	}

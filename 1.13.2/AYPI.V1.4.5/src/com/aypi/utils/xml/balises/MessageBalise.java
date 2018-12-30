@@ -6,6 +6,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
 import com.aypi.utils.xml.MCBalise;
+import com.aypi.utils.xml.XMLFile;
 
 public class MessageBalise extends MCBalise {
 	
@@ -19,7 +20,7 @@ public class MessageBalise extends MCBalise {
 	}
 
 	@Override
-	public void customExecute(Player player) {
+	public void customExecute(Player player, XMLFile xmlFile) {
 		if (player != null) {
 			String line = getContent();
 			line = line.replaceAll("%PLAYER%", player.getName());

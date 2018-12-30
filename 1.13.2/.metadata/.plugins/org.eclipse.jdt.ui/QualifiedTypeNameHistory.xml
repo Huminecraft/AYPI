@@ -2,10 +2,19 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="javax.xml.soap.Node"/>
     <fullyQualifiedTypeName name="org.w3c.dom.NamedNodeMap"/>
-    <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
     <fullyQualifiedTypeName name="com.aypi.utils.xml.script.VariableType"/>
     <fullyQualifiedTypeName name="com.aypi.utils.xml.script.Variable"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
-    <fullyQualifiedTypeName name="com.aypi.utils.xml.script.MathOperator"/>
     <fullyQualifiedTypeName name="javax.swing.text.Document"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
+    <fullyQualifiedTypeName name="com.aypi.utils.xml.XMLFile"/>
+    <fullyQualifiedTypeName name="com.aypi.utils.xml.balises.IfBalise"/>
+    <fullyQualifiedTypeName name="com.aypi.utils.xml.balises.TrueBalise"/>
+    <fullyQualifiedTypeName name="com.aypi.utils.xml.balises.FalseBalise"/>
+    <fullyQualifiedTypeName name="org.bukkit.plugin.java.JavaPlugin"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="com.aypi.utils.xml.script.MathOperator"/>
+    <fullyQualifiedTypeName name="com.aypi.utils.xml.script.error.MCError"/>
+    <fullyQualifiedTypeName name="com.aypi.utils.xml.script.LogicOperator"/>
+    <fullyQualifiedTypeName name="com.aypi.utils.xml.MCBalise"/>
 </qualifiedTypeNameHistroy>

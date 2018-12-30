@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.w3c.dom.NamedNodeMap;
 
 import com.aypi.utils.xml.MCBalise;
+import com.aypi.utils.xml.XMLFile;
 
 public class PlayerJoinBalise extends MCBalise {
 
@@ -14,9 +15,9 @@ public class PlayerJoinBalise extends MCBalise {
 	}
 
 	@Override
-	public void customExecute(Player player) {
+	public void customExecute(Player player, XMLFile xmlFile) {
 		for (MCBalise mcb : getChildrens()) {
-			mcb.execute(player);
+			mcb.execute(player, xmlFile);
 		}
 	}
 
