@@ -8,13 +8,13 @@
 5. Les conditions.
 6. Les boucles.
 _________________
-# **1) Créer l'environnement d'execution.**#
+# **1) Créer l'environnement d'execution.**
 
 Avant de commencer a créer vos premier script en ```BeaconScript```, il est nécéssaire de bien comprendre comment bien installer un environnement cappable de comprendre vos futurs scripts.
 
 Dans un premier temps il va falloir procéder a l'instalation d'un serveur minecraft. L'objectif est que vous soyez administrateur sur celui-ci et que vous puissiez avoir accés a la totalité de ces dossiers... *(L'objectif de ce guide n'est pas de présenter les détais de l'instalation d'un serveur. C'est a vous de vous débrouiller de faire vos propres recherches.)*
 
-#### A) Installer L'AYPI. #  
+#### A) Installer L'AYPI. 
 
 Une fois votre serveur mis en place, vous pouvez voir qu'il possède un dossier ```/plugins```. Vous pouvez alors télécharger le moteur de vos futurs scripts: L'*AYPI*. Télécharger donc la dernière version, et glisser la dans le dossier ```/plugins``` de votre serveur.
 A présent démarer votre serveur.
@@ -24,7 +24,7 @@ Accédez a la console du serveur, et tappez la commande:
 Le but de cette commande est d'afficher la liste des plugins installer sur le serveur. Si vous avez correctement installer *l'AYPI*, le serveur devrez afficher:  
 ```Plugins (1): Aypi```.
 
-#### B) Configurer L'AYPI. #
+#### B) Configurer L'AYPI. 
 Quand L'*AYPI* est installé sur un serveur, il va créer de nouveaux fichier dans le dossier ```/plugins``` de celui-ci. Rendez vous dans le dossier ```/plugins/Aypi```. Ouvrez le fichier ```config.yml``` puis changez la valeur de ```xmlloader: false``` a ```xmlloader: true```. Redémarrez le serveur et observez que le plugins a créer un nouveaux dossier.
 Le dossier ```/plugins/Aypi/xml-reader```qui viens d'être créer est **le** dossier dans le quel vous devrez placer vos scripts.
 _________
@@ -40,7 +40,7 @@ Pour des soucis de simplicité la totalité de vos scripts devrons commencer par
 Je ne rentrerez pas dans les details de pourquoi cette ligne est importante mais je vous conseile de vous y interesser en mennant vos propres recherches sur le sujet.  
 Creer la balise ```<server></server>```. Cette balise et la racine de votre script. Tout votre code devra se trouver a l'interieur de cette balise.  
 
-### C) Votre premier script #
+### C) Votre premier script 
 
 Observons le célébre ***"Hello World !"*** adappté en ```BeaconScript```.  
 
@@ -68,7 +68,7 @@ La balise ```<console-log>``` est une balise a contenus compilable. Nous verrons
  Le code présenter va donc afficher le message "Hello World !" dans la console du serveur quand celui-ci va s'allumer.
  _________
 
- # ** 3) Le compilateur ** #
+ # 3) Le compilateur 
 Le compilateur est une notion a assez importante a comprendre afin de pouvoir exploiter au mieu le ```BeaconScript```.
 
 Il existe trois type de contenus pouvant être interpreter par le compilateur:
@@ -108,7 +108,7 @@ Il suffit d'utiliser des parantheses. L'orsque que le compilateur rencontre des 
 ```
 Maintenant le code affiche ```17``` et non ```42```.
 
-#### B) Les operations sur les boolean ou type 'BOOLEAN' #
+#### B) Les operations sur les boolean ou type 'BOOLEAN'
 
 Un boolean peut avoir deux valeur possible: vrai ou fausse soit ```'true'``` ou ```'false'```.
 
@@ -153,3 +153,25 @@ exemple:
 <!-- retourne 'false' -->
 <console-log>NOT true</console-log>
 ```
+
+### C) Traitement des type 'STRING'
+
+Dans le cas des type **'STRING'** il est possible de les additionner entre eux.  
+exemple:
+
+```XML
+<!-- affiche 'Bonjour tout le monde' dans la console-->
+<console-log>'Bonjour tout ' + 'le monde'</console-log>
+<!-- affiche 'Vous avez 42 ans' dans la console-->
+<console-log>'Vous avez ' + 42 + ' ans</console-log>
+<!-- affiche 'Vous etes majeur: true' dans la console-->
+<console-log>'Vous etes majeur: ' + true</console-log>
+```
+
+### D) Encore plus de comparaisons
+Il existe plusieur comparateur de nombre:  
+* égal: eq
+* inferieur: lt
+* superieur: gt
+* inferieur ou égal: loe
+* superieur ou égal: goe
