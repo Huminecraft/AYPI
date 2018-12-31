@@ -590,6 +590,7 @@ java.lang.NoClassDefFoundError: javax/xml/bind/JAXBContext
 	at org.eclipse.recommenders.news.impl.poll.DefaultNewsPollingService.poll(DefaultNewsPollingService.java:64)
 	at org.eclipse.recommenders.internal.news.rcp.poll.PollFeedsJob.run(PollFeedsJob.java:70)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+<<<<<<< HEAD
 !SESSION 2018-12-30 17:32:52.664 -----------------------------------------------
 eclipse.buildId=4.8.0.I20180611-0500
 java.version=1.8.0_181
@@ -5784,3 +5785,5 @@ Caused by: java.lang.IllegalArgumentException: assertion failed.
 	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
 	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
 	at java.lang.Thread.run(Thread.java:748)
+=======
+>>>>>>> 7b190cf4b734a683ddc37f1c72d8123ac7af3e0d

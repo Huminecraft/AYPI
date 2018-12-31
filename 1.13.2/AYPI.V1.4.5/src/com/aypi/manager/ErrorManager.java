@@ -21,7 +21,10 @@ public class ErrorManager {
 		errors.add(new MCError("Operator not exist", 7, "hum... what is this ?"));
 		errors.add(new MCError("don't divide by 0", 8, "you can't divide by 0"));
 		errors.add(new MCError("unknown arguments", 9, "what is this ?"));
+<<<<<<< HEAD
 		errors.add(new MCError("'Material' not found", 10, "the 'Material' should be a block"));
+=======
+>>>>>>> 7b190cf4b734a683ddc37f1c72d8123ac7af3e0d
 	}
 	
 	public ArrayList<MCError> getErrors() {

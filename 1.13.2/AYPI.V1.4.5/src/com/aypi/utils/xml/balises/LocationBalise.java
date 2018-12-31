@@ -8,7 +8,10 @@ import org.w3c.dom.Node;
 
 import com.aypi.utils.xml.MCBalise;
 import com.aypi.utils.xml.XMLFile;
+<<<<<<< HEAD
 import com.aypi.utils.xml.script.Variable;
+=======
+>>>>>>> 7b190cf4b734a683ddc37f1c72d8123ac7af3e0d
 
 public class LocationBalise extends MCBalise {
 
@@ -55,6 +58,7 @@ public class LocationBalise extends MCBalise {
 
 	@Override
 	public void customExecute(Player player, XMLFile xmlFile) {
+<<<<<<< HEAD
 		
 		
 		if (playerloc) {
@@ -85,6 +89,12 @@ public class LocationBalise extends MCBalise {
 		for (MCBalise mcBalise : getChildrens()) {
 			if (mcBalise instanceof LocationBaliseAdaptor) {
 				((LocationBaliseAdaptor) mcBalise).setLocation(location);
+=======
+		for (MCBalise mcBalise : getChildrens()) {
+			if (mcBalise instanceof LocationBaliseAdaptor) {
+				((LocationBaliseAdaptor) mcBalise).setLocation(location);
+				mcBalise.execute(player, xmlFile);
+>>>>>>> 7b190cf4b734a683ddc37f1c72d8123ac7af3e0d
 			}
 			mcBalise.execute(player, xmlFile);
 		}

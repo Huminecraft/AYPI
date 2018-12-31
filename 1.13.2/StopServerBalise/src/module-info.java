@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author aymeric
- *
- */
-module StopServerBalise {
-}

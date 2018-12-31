@@ -149,6 +149,7 @@ public class ScriptManager {
 		else
 			Aypi.getErrorManager().getError(7).display(line, code);
 		return null;
+<<<<<<< HEAD
 	}
 	
 	public String doCompareBoolean(String last, String next, String operator, int line, String code) {
@@ -164,6 +165,23 @@ public class ScriptManager {
 		return null;
 	}
 	
+=======
+	}
+	
+	public String doCompareBoolean(String last, String next, String operator, int line, String code) {
+		LogicOperator lo = LogicOperator.getOperator(operator);
+		if (lo == LogicOperator.AND)
+			return ""+(getBoolean(last) && getBoolean(next)); 
+		else if (lo == LogicOperator.OR)
+			return ""+(getBoolean(last) || getBoolean(next));
+		else if (lo == LogicOperator.XOR)
+			return ""+((getBoolean(last) && !(getBoolean(next)) || (!getBoolean(last) && getBoolean(next))));
+		else
+			Aypi.getErrorManager().getError(7).display(line, code);
+		return null;
+	}
+	
+>>>>>>> 7b190cf4b734a683ddc37f1c72d8123ac7af3e0d
 	//VARIABLE
 	
 	public boolean isVariable(String name) {

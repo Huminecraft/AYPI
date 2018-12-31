@@ -46,8 +46,11 @@ public class XMLFileManager {
 		mcbs.add(new FalseBalise());
 		mcbs.add(new VariableBalise());
 		mcbs.add(new WhileBalise());
+<<<<<<< HEAD
 		mcbs.add(new MinecraftCommandBalise());
 		mcbs.add(new PlaceBlockBalise());
+=======
+>>>>>>> 7b190cf4b734a683ddc37f1c72d8123ac7af3e0d
 	}
 	
 	public void addXMLFile(XMLFile xmlFile) {
