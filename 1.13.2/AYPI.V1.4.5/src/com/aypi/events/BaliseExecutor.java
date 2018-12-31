@@ -4,12 +4,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import com.aypi.Aypi;
 import com.aypi.utils.xml.XMLFile;
 import com.aypi.utils.xml.balises.PlayerJoinBalise;
 import com.aypi.utils.xml.balises.PlayerLeftBalise;
+import com.aypi.utils.xml.balises.PlayerMoveBalise;
 import com.aypi.utils.xml.balises.StartServerBalise;
 import com.aypi.utils.xml.balises.StopServerBalise;
 
@@ -31,6 +33,11 @@ public class BaliseExecutor implements Listener {
 	@EventHandler
 	public void onPlayerLeft(PlayerQuitEvent e) {
 		executeBalise(PlayerLeftBalise.NAME, e.getPlayer());
+	}
+	
+	@EventHandler
+	public void onPlayerMove(PlayerMoveEvent e) {
+		executeBalise(PlayerMoveBalise.NAME, e.getPlayer());
 	}
 	
 	

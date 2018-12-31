@@ -42,6 +42,7 @@ public class Timer implements Runnable
 		this.name = "";
 		this.timerListener = null;
 		Aypi.getTimerManager().addTimer(this);
+		this.duration *= 20;
 	}
 
 	
@@ -64,6 +65,7 @@ public class Timer implements Runnable
 		this.name = "";
 		this.timerListener = null;
 		Aypi.getTimerManager().addTimer(this);
+		this.duration *= 20;
 	}
 
 	
@@ -88,6 +90,7 @@ public class Timer implements Runnable
 		this.name = name;
 		this.timerListener = null;
 		Aypi.getTimerManager().addTimer(this);
+		this.duration *= 20;
 	}
 
 	
@@ -111,6 +114,30 @@ public class Timer implements Runnable
 		this.name = "";
 		this.timerListener = listener;
 		Aypi.getTimerManager().addTimer(this);
+		this.duration *= 20;
+	}
+	
+	/*
+	 * Class constructeur de Timer
+	 * 
+	 * @param plugin Plugin dans lequel le constructeur est appeller
+	 * 
+	 * @param duration Temps du compte � rebours en SECONDE
+	 * 
+	 * @param listener Action que doit faire le timer une fois terminer
+	 * 
+	 * @param second true pour compter la duration en second false pour la compte en tiks
+	 */
+	public Timer(Plugin plugin, int duration, TimerFinishListener listener, boolean second)
+	{
+		this.duration = duration;
+		this.start = false;
+		this.plugin = plugin;
+		this.name = "";
+		this.timerListener = listener;
+		Aypi.getTimerManager().addTimer(this);
+		if (second)
+			this.duration *= 20;
 	}
 	
 	
@@ -134,6 +161,7 @@ public class Timer implements Runnable
 		this.name = name;
 		this.timerListener = listener;
 		Aypi.getTimerManager().addTimer(this);
+		this.duration *= 20;
 	}
 	
 	
@@ -144,7 +172,7 @@ public class Timer implements Runnable
 	 */
 	public void start()
 	{
-		this.task = Bukkit.getScheduler().runTaskTimer(this.plugin, this, 0L, 20L);
+		this.task = Bukkit.getScheduler().runTaskTimer(this.plugin, this, 0, 1);
 		this.start = true;
 		Bukkit.getPluginManager().callEvent(new StartTimerEvent(this));
 	}

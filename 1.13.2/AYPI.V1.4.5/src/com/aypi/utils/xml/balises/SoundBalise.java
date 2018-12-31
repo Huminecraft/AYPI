@@ -8,6 +8,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
 import com.aypi.utils.xml.MCBalise;
+import com.aypi.utils.xml.XMLFile;
 
 public class SoundBalise extends LocationBaliseAdaptor {
 
@@ -38,7 +39,7 @@ public class SoundBalise extends LocationBaliseAdaptor {
 	}
 
 	@Override
-	public void customExecute(Player player) {
+	public void customExecute(Player player, XMLFile xmlFile) {
 		
 		if (player == null && !broadcast) {
 			

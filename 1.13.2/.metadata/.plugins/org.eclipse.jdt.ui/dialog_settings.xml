@@ -36,6 +36,8 @@
 		<item value="2" key="pageIndex"/>
 	</section>
 	<section name="completion_proposal_size">
+		<item value="252" key="size.y"/>
+		<item value="596" key="size.x"/>
 	</section>
 	<section name="JarPackageWizard">
 		<item value="false" key="JarPackageWizardPage.INCLUDE_DIRECTORY_ENTRIES"/>
@@ -58,6 +60,8 @@
 		<item value="false" key="JarPackageWizardPage.EXPORT_OUTPUT_FOLDER"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
 			<item value="C:\Users\aymeg\Desktop\crashtest\plugins\AYPI.V1.4.5.jar"/>
+			<item value="\home\aymeric\prog\java\server\minecraft\plugins\AYPI.V1.4.5.jar"/>
+			<item value="/home/aymeric/prog/java/server/minecraft/plugins/AYPI.V1.4.5.jar"/>
 			<item value="D:\programmation\java\workspace\Huminecraft\Librairies\AYPI\AYPI.V1.4.5.jar"/>
 			<item value="D:\programmation\java\workspace\Huminecraft\Librairies\AYPI\AYPI.V1.4.4.jar"/>
 			<item value="D:\programmation\java\workspace\Huminecraft\Librairies\AYPI\AYPI.V1.4.3.jar"/>

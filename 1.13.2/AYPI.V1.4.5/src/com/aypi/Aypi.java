@@ -5,6 +5,7 @@ import java.io.File;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.aypi.events.BaliseExecutor;
+import com.aypi.manager.ErrorManager;
 import com.aypi.manager.EventManager;
 import com.aypi.manager.MenuManager;
 import com.aypi.manager.ParticleManager;
@@ -21,6 +22,7 @@ public class Aypi extends JavaPlugin {
 	private static TimerManager timerManager;
 	private static ParticleManager particleManager;
 	private static XMLFileManager xmlFileManager;
+	private static ErrorManager errorManager;
 
 	/*
 	 * Class principal de l'API AYPI
@@ -34,6 +36,7 @@ public class Aypi extends JavaPlugin {
 		timerManager = new TimerManager();
 		particleManager = new ParticleManager();
 		xmlFileManager = new XMLFileManager();
+		errorManager = new ErrorManager();
 		new EventManager(this);
 		
 		if (this.getConfig().getBoolean("xmlloader")) {
@@ -78,5 +81,9 @@ public class Aypi extends JavaPlugin {
 	
 	public static XMLFileManager getXMLFileManager() {
 		return xmlFileManager;
+	}
+	
+	public static ErrorManager getErrorManager() {
+		return errorManager;
 	}
 }

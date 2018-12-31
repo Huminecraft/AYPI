@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.w3c.dom.NamedNodeMap;
 
 import com.aypi.utils.xml.MCBalise;
+import com.aypi.utils.xml.XMLFile;
 
 public class LogBalise extends MCBalise {
 
@@ -18,13 +19,13 @@ public class LogBalise extends MCBalise {
 	}
 
 	@Override
-	public void customExecute(Player player) {
-		String line = getContent();
+	public void customExecute(Player player, XMLFile xmlFile) {
+		String line = getString(xmlFile.getScriptManager().compile(getContent(), 0), xmlFile);
 		if (player != null) {
 			line = line.replaceAll("%PLAYER%", player.getName());
 		}
 		
-		System.out.println("[MCXML]: "+line);
+		System.out.println(line);
 	}
 	
 	@Override

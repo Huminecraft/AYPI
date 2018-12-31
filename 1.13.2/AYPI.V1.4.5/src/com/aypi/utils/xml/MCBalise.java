@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
@@ -14,6 +15,9 @@ public abstract class MCBalise {
 	
 	private String name;
 	private String content;
+	private XMLFile xmlFile;
+	private String id;
+	private int line;
 	
 	private double delay;
 	
@@ -21,17 +25,23 @@ public abstract class MCBalise {
 	
 	public MCBalise(String name) {
 		this.name = name;
-		this.delay = 0;
+		this.delay = 1;
 		this.mcbs = new ArrayList<MCBalise>();
 	}
 	
 	public void setUpAttributes(NamedNodeMap namedNodeMap) {
 		
 		Node node = namedNodeMap.getNamedItem("delay");
+		Node id = namedNodeMap.getNamedItem("id");
 		
 		if (node != null) {
 			String value = node.getNodeValue();
 			this.delay = Double.parseDouble(value);
+		}
+		
+		if (id != null) {
+			String value = id.getNodeValue();
+			this.id = value;
 		}
 		
 		setUpCustomAttributes(namedNodeMap);
@@ -39,19 +49,28 @@ public abstract class MCBalise {
 	
 	public abstract void setUpCustomAttributes(NamedNodeMap namedNodeMap);
 	
-	public void execute(Player player) {
-		new Timer(Bukkit.getPluginManager().getPlugin("Aypi"), (int) this.delay, new TimerFinishListener() {
-			
-			@Override
-			public void execute() {
+	public void execute(Player player, XMLFile xmlFile) {
+		
+		Plugin plugin = Bukkit.getPluginManager().getPlugin("Aypi");
+		
+		if (plugin.isEnabled()) {
+			new Timer(plugin, (int) this.delay, new TimerFinishListener() {
 				
-				customExecute(player);
+				@Override
+				public void execute() {
+					
+					customExecute(player, xmlFile);
+					
+				}
 				
-			}
-		}).start();
+			}, false).start();
+		} else {
+			customExecute(player, xmlFile);
+		}
+		
 	}
 	
-	public abstract void customExecute(Player player);
+	public abstract void customExecute(Player player, XMLFile xmlFile);
 	
 	public abstract MCBalise getInstance();
 	
@@ -59,12 +78,18 @@ public abstract class MCBalise {
 		return name;
 	}
 	
-	public void setContent(String value) {		
+	public String getId() {
+		return id;
+	}
+	
+	public void setContent(String value, XMLFile xmlFile, int line) {		
 		this.content = value;
+		this.xmlFile = xmlFile;
+		this.line = line;
 	}
 	
 	public String getContent() {
-		return this.content;
+		return xmlFile.getScriptManager().compile(this.content, line);
 	}
 	
 	public void addChildren(MCBalise mcb) {
@@ -77,6 +102,21 @@ public abstract class MCBalise {
 	
 	public boolean haveChildren() {
 		return mcbs.size() > 0;
+	}
+	
+	protected String getString(String string, XMLFile xmlFile) {
+		
+		if (xmlFile.getScriptManager().isString(string)) {
+			
+			char[] tab = string.toCharArray();
+			
+			string = new String(tab, 1, string.length() - 2);
+			
+			return string;
+			
+		}
+		
+		return null;
 	}
 	
 }

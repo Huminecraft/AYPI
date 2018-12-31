@@ -6,11 +6,11 @@ import org.w3c.dom.NamedNodeMap;
 import com.aypi.utils.xml.MCBalise;
 import com.aypi.utils.xml.XMLFile;
 
-public class StopServerBalise extends MCBalise {
+public class PlayerMoveBalise extends MCBalise {
 
-	public static final String NAME = "on-server-stop";
+	public static final String NAME = "on-player-move";
 	
-	public StopServerBalise() {
+	public PlayerMoveBalise() {
 		super(NAME);
 	}
 
@@ -21,16 +21,16 @@ public class StopServerBalise extends MCBalise {
 
 	@Override
 	public void customExecute(Player player, XMLFile xmlFile) {
-		for (MCBalise mcBalise : getChildrens()) {
-			mcBalise.execute(player, xmlFile);
+		
+		for (MCBalise balise : getChildrens()) {
+			balise.execute(player, xmlFile);
 		}
+		
 	}
-	
+
 	@Override
 	public MCBalise getInstance() {
-		return new StopServerBalise();
+		return new PlayerMoveBalise();
 	}
-	
-	
 
 }

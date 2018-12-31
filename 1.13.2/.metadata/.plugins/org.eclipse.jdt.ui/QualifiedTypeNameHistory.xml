@@ -2,10 +2,30 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="javax.xml.soap.Node"/>
 <fullyQualifiedTypeName name="org.w3c.dom.NamedNodeMap"/>
-<fullyQualifiedTypeName name="org.w3c.dom.Node"/>
 <fullyQualifiedTypeName name="com.aypi.utils.xml.script.VariableType"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.script.Variable"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.script.MathOperator"/>
 <fullyQualifiedTypeName name="javax.swing.text.Document"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.IfBalise"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.TrueBalise"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.FalseBalise"/>
+<fullyQualifiedTypeName name="org.bukkit.plugin.java.JavaPlugin"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.script.MathOperator"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.script.LogicOperator"/>
+<fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.XMLFile"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.MinecraftCommandBalise"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="org.bukkit.Location"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.LocationBaliseAdaptor"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Node"/>
+<fullyQualifiedTypeName name="net.minecraft.server.v1_13_R2.ItemStack"/>
+<fullyQualifiedTypeName name="org.bukkit.inventory.ItemStack"/>
+<fullyQualifiedTypeName name="org.bukkit.Material"/>
+<fullyQualifiedTypeName name="org.bukkit.block.data.BlockData"/>
+<fullyQualifiedTypeName name="com.aypi.Aypi"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.script.error.MCError"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.script.Variable"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.PlaceBlockBalise"/>
+<fullyQualifiedTypeName name="org.bukkit.event.player.PlayerMoveEvent"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.MCBalise"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.PlayerMoveBalise"/>
 </qualifiedTypeNameHistroy>

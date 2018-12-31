@@ -6,31 +6,27 @@ import org.w3c.dom.NamedNodeMap;
 import com.aypi.utils.xml.MCBalise;
 import com.aypi.utils.xml.XMLFile;
 
-public class StopServerBalise extends MCBalise {
+public class FalseBalise extends MCBalise {
 
-	public static final String NAME = "on-server-stop";
+	public static final String NAME = "false";
 	
-	public StopServerBalise() {
+	public FalseBalise() {
 		super(NAME);
 	}
 
 	@Override
-	public void setUpCustomAttributes(NamedNodeMap namedNodeMap) {
-		
-	}
+	public void setUpCustomAttributes(NamedNodeMap namedNodeMap) {}
 
 	@Override
 	public void customExecute(Player player, XMLFile xmlFile) {
-		for (MCBalise mcBalise : getChildrens()) {
-			mcBalise.execute(player, xmlFile);
+		for (MCBalise children : getChildrens()) {
+			children.execute(player, xmlFile);
 		}
 	}
-	
+
 	@Override
 	public MCBalise getInstance() {
-		return new StopServerBalise();
+		return new FalseBalise();
 	}
-	
-	
 
 }
