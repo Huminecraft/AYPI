@@ -1,7 +1,0 @@
-package com.aypi.utils.xml;
-
-public enum ParserState {
-	
-	NONE,EVENT;
-	
-}

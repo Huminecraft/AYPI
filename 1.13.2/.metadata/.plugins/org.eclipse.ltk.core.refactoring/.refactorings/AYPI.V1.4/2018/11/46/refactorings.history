@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename package &apos;src.com.aypi&apos; to &apos;com.aypi&apos;&#x0D;&#x0A;- Original project: &apos;AYPI.V1.4&apos;&#x0D;&#x0A;- Original element: &apos;AYPI.V1.4/src.com.aypi&apos;&#x0D;&#x0A;- Renamed element: &apos;AYPI.V1.4/com.aypi&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;src.com.aypi&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/&lt;src.com.aypi" name="com.aypi" qualified="false" references="true" stamp="1542137183254" textual="false" version="1.0"/>
-</session>
