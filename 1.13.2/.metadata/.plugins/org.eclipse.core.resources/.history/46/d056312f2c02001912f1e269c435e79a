@@ -1,0 +1,25 @@
+package com.aypi.utils.xml;
+
+import org.bukkit.entity.Player;
+import org.xml.sax.Attributes;
+
+import com.aypi.Aypi;
+
+public abstract class MCBalise {
+	
+	private String name;
+	
+	public MCBalise(String name) {
+		this.name = name;
+		Aypi.getXMLFileManager().addMCBalise(this);
+	}
+	
+	public abstract void load(Attributes attributes);
+	
+	public abstract void execute(Player player);
+	
+	public String getName() {
+		return name;
+	}
+	
+}

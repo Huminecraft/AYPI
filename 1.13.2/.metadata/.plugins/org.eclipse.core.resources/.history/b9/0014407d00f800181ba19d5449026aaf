@@ -1,0 +1,5 @@
+package com.aypi.events;
+
+public class EntityDamage {
+
+}

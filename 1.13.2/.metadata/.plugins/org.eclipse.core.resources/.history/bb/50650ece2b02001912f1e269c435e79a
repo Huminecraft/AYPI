@@ -1,0 +1,32 @@
+package com.aypi.utils.xml.balises;
+
+import org.bukkit.entity.Player;
+import org.xml.sax.Attributes;
+
+import com.aypi.utils.xml.MCBalise;
+
+public class MessageBalise extends MCBalise {
+	
+	private final static String name = "message";
+	
+	private String containt;
+	
+	public MessageBalise(String containt) {
+		super(name);
+	}
+
+	@Override
+	public void execute(Player player) {
+		player.sendMessage(this.containt);
+	}
+	
+	@Override
+	public void load(Attributes attributes) {
+		
+	}
+	
+	public String getContaint() {
+		return this.containt;
+	}
+
+}

@@ -1,0 +1,23 @@
+package com.aypi.utils;
+
+import java.util.ArrayList;
+
+public class ZonePriorityBuffer {
+	
+	private ArrayList<Zone> zones;
+	
+	private int priority;
+	
+	public ZonePriorityBuffer() {
+		zones = new ArrayList<Zone>();
+	}
+	
+	public ArrayList<Zone> getZones() {
+		return zones;
+	}
+	
+	public ArrayList<Zone> getPriorityZones() {
+		ArrayList<Zone> priority
+	}
+
+}

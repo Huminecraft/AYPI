@@ -1,0 +1,64 @@
+package com.aypi.utils.xml;
+
+import java.util.jar.Attributes;
+
+import org.xml.sax.helpers.DefaultHandler;
+
+import com.aypi.Aypi;
+
+public class XMLParser extends DefaultHandler {
+	
+	private XMLFile xmlFile;
+	
+	private MCBalise balise;
+	private MCBalise currentChildren = null;
+	
+	public XMLParser(XMLFile xmlFile) {
+		this.xmlFile = xmlFile;
+	}
+	
+	public void startDocument() {
+		System.out.println("[AYPI] start parsing "+xmlFile.getFile().getName()+"...");
+	}
+	
+	public void endDocument() {
+		System.out.println("[AYPI] finish parsing "+xmlFile.getFile().getName()+" !");
+	}
+	
+	public void startElement(String nameSpaceURI, String localName, String qName, Attributes atts) {
+		System.out.println(qName);
+		for (MCBalise mc : Aypi.getXMLFileManager().getMCBalises()) {
+			if (qName.equalsIgnoreCase(mc.getName())) {
+				if (balise == null) {
+					balise = mc;
+					balise.setUpAttributes(atts);
+				} else {
+					currentChildren = mc;
+					currentChildren.setUpAttributes(atts);
+					balise.addChildren(currentChildren);
+				}
+				break;
+			}
+		}
+	}
+	
+	public void endElement(String nameSpaceURI, String localName, String qName) {	
+		if (balise != null && qName.equalsIgnoreCase(balise.getName())) {
+			xmlFile.addMCBalise(balise);
+			balise = null;
+		}
+		
+		if (currentChildren != null && qName.equalsIgnoreCase(currentChildren.getName())) {
+			currentChildren = null;
+		}
+	}
+	
+	public void characters(char[] ch, int start, int length) {
+		if (balise != null) {
+			
+			balise.setContaint(new String(ch, start, length));
+			
+		}
+	}
+
+}

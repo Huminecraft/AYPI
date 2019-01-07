@@ -1,0 +1,38 @@
+package com.aypi.utils.xml.balises;
+
+import org.bukkit.entity.Player;
+import org.w3c.dom.NamedNodeMap;
+
+import com.aypi.utils.xml.MCBalise;
+import com.aypi.utils.xml.XMLFile;
+
+public class DeletLineBalise extends FileManagerBaliseAdaptor {
+
+	public static final String NAME = "delet-line";
+	
+	private String allS;
+	private boolean all;
+	
+	public DeletLineBalise() {
+		super(NAME);
+	}
+
+	@Override
+	public void setUpCustomAttributes(NamedNodeMap namedNodeMap) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void customExecute(Player player, XMLFile xmlFile) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public MCBalise getInstance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,40 @@
+package com.aypi.utils.xml.balises;
+
+import org.bukkit.entity.Player;
+import org.w3c.dom.NamedNodeMap;
+
+import com.aypi.manager.FileManager;
+import com.aypi.utils.xml.MCBalise;
+import com.aypi.utils.xml.XMLFile;
+
+public class FileManagerBalise extends MCBalise {
+
+	public static final String NAME = "file-manager";
+	
+	private FileManager fileManager;
+	
+	public FileManagerBalise() {
+		super(NAME);
+	}
+
+	@Override
+	public void setUpCustomAttributes(NamedNodeMap namedNodeMap) {
+		
+	}
+
+	@Override
+	public void customExecute(Player player, XMLFile xmlFile) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public MCBalise getInstance() {
+		return new FileManagerBalise();
+	}
+	
+	public FileManager getFileManager() {
+		return fileManager;
+	}
+
+}

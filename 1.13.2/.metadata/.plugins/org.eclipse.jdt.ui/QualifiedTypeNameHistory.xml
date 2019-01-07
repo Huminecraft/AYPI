@@ -1,51 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<<<<<<< HEAD
-<fullyQualifiedTypeName name="javax.xml.soap.Node"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Document"/>
+<fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="org.w3c.dom.NamedNodeMap"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.script.VariableType"/>
-<fullyQualifiedTypeName name="javax.swing.text.Document"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.IfBalise"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.TrueBalise"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.FalseBalise"/>
-<fullyQualifiedTypeName name="org.bukkit.plugin.java.JavaPlugin"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.script.MathOperator"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.script.LogicOperator"/>
-<fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.XMLFile"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.MinecraftCommandBalise"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="org.bukkit.Location"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.LocationBaliseAdaptor"/>
+<fullyQualifiedTypeName name="javax.xml.transform.TransformerFactory"/>
+<fullyQualifiedTypeName name="javax.xml.transform.dom.DOMSource"/>
+<fullyQualifiedTypeName name="javax.xml.transform.stream.StreamResult"/>
+<fullyQualifiedTypeName name="javax.xml.transform.Transformer"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.PrintBalise"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.FileManagerBalise"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.PrintLineBalise"/>
 <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
-<fullyQualifiedTypeName name="net.minecraft.server.v1_13_R2.ItemStack"/>
-<fullyQualifiedTypeName name="org.bukkit.inventory.ItemStack"/>
-<fullyQualifiedTypeName name="org.bukkit.Material"/>
-<fullyQualifiedTypeName name="org.bukkit.block.data.BlockData"/>
 <fullyQualifiedTypeName name="com.aypi.Aypi"/>
 <fullyQualifiedTypeName name="com.aypi.utils.xml.script.error.MCError"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.script.Compile"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.ListScriptBalise"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.ListScriptAddBalise"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.ListScriptRemoveBalise"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.script.ListScript"/>
 <fullyQualifiedTypeName name="com.aypi.utils.xml.script.Variable"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.PlaceBlockBalise"/>
-<fullyQualifiedTypeName name="org.bukkit.event.player.PlayerMoveEvent"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.ClearFileBalise"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.FileManagerBaliseAdaptor"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.DeletLineBalise"/>
+<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.DeletFileBalise"/>
+<fullyQualifiedTypeName name="com.aypi.manager.FileManager"/>
+<fullyQualifiedTypeName name="com.aypi.utils.inter.SurchMcBalise"/>
 <fullyQualifiedTypeName name="com.aypi.utils.xml.MCBalise"/>
-<fullyQualifiedTypeName name="com.aypi.utils.xml.balises.PlayerMoveBalise"/>
-=======
-    <fullyQualifiedTypeName name="javax.xml.soap.Node"/>
-    <fullyQualifiedTypeName name="org.w3c.dom.NamedNodeMap"/>
-    <fullyQualifiedTypeName name="com.aypi.utils.xml.script.VariableType"/>
-    <fullyQualifiedTypeName name="com.aypi.utils.xml.script.Variable"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
-    <fullyQualifiedTypeName name="javax.swing.text.Document"/>
-    <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
-    <fullyQualifiedTypeName name="com.aypi.utils.xml.XMLFile"/>
-    <fullyQualifiedTypeName name="com.aypi.utils.xml.balises.IfBalise"/>
-    <fullyQualifiedTypeName name="com.aypi.utils.xml.balises.TrueBalise"/>
-    <fullyQualifiedTypeName name="com.aypi.utils.xml.balises.FalseBalise"/>
-    <fullyQualifiedTypeName name="org.bukkit.plugin.java.JavaPlugin"/>
-    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
-    <fullyQualifiedTypeName name="com.aypi.utils.xml.script.MathOperator"/>
-    <fullyQualifiedTypeName name="com.aypi.utils.xml.script.error.MCError"/>
-    <fullyQualifiedTypeName name="com.aypi.utils.xml.script.LogicOperator"/>
-    <fullyQualifiedTypeName name="com.aypi.utils.xml.MCBalise"/>
->>>>>>> 7b190cf4b734a683ddc37f1c72d8123ac7af3e0d
 </qualifiedTypeNameHistroy>

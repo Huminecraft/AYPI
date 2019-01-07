@@ -1,0 +1,51 @@
+package com.aypi.utils.xml;
+
+import java.util.jar.Attributes;
+
+import org.xml.sax.helpers.DefaultHandler;
+
+import com.aypi.Aypi;
+
+public class XMLParser extends DefaultHandler {
+	
+	private XMLFile xmlFile;
+	private ParserState parserState;
+	
+	private MCBalise balise;
+	
+	public XMLParser(XMLFile xmlFile) {
+		this.xmlFile = xmlFile;
+	}
+	
+	public void startDocument() {
+		
+	}
+	
+	public void endDocument() {
+		
+	}
+	
+	public void startElement(String nameSpaceURI, String localName, String qName, Attributes atts) {
+		for (MCBalise mc : Aypi.getXMLFileManager().getMCBalises()) {
+			if (qName.equalsIgnoreCase(mc.getName())) {
+				balise = mc;
+				balise.setUpAttributes(atts);
+				break;
+			}
+		}
+	}
+	
+	public void endElement(String nameSpaceURI, String localName, String qName) {	
+		xmlFile.a
+		balise = null;
+	}
+	
+	public void characters(char[] ch, int start, int length) {
+		if (balise != null) {
+			
+			balise.setContaint(new String(ch, start, length));
+			
+		}
+	}
+
+}

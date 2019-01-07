@@ -1,0 +1,20 @@
+package com.aypi.utils.xml.script;
+
+public enum MathOperator {
+	
+	ADDITION, SUBSTRACTION, MULTIPLICATION, DIVISION, NULL;
+	
+	static MathOperator getOperator(String op) {
+		if (op.equalsIgnoreCase("+"))
+			return ADDITION;
+		else if (op.equalsIgnoreCase("-"))
+			return SUBSTRACTION;
+		else if (op.equalsIgnoreCase("*"))
+			return MULTIPLICATION;
+		else if (op.equalsIgnoreCase("/"))
+			return DIVISION;
+		else
+			return NULL;
+	}
+
+}

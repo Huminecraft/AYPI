@@ -1,0 +1,36 @@
+package com.aypi.utils.xml;
+
+import java.util.jar.Attributes;
+
+import org.xml.sax.helpers.DefaultHandler;
+
+public class XMLParser extends DefaultHandler {
+	
+	private XMLFile xmlFile;
+	
+	public XMLParser(XMLFile xmlFile) {
+		this.xmlFile = xmlFile;
+	}
+	
+	public void startDocument() {
+		
+	}
+	
+	public void endDocument() {
+		
+	}
+	
+	public void startElement(String nameSpaceURI, String localName, String qName, Attributes atts) {
+		
+	}
+	
+	public void endElement(String nameSpaceURI, String localName, String qName) {
+		
+		
+	}
+	
+	public void characters(char[] ch, int start, int length) {
+		
+	}
+
+}

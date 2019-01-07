@@ -1,0 +1,9 @@
+package com.aypi.utils.inter;
+
+import com.aypi.utils.xml.MCBalise;
+
+public interface surchMcBalise {
+	
+	public abstract void execute(MCBalise balise);
+
+}

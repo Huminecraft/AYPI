@@ -1,0 +1,5 @@
+package com.aypi.utils.inter;
+
+public interface surchMcBalise {
+
+}

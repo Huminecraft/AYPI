@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.aypi.utils.inter.surchMcBalise&apos; to &apos;SurchMcBalise&apos;&#x0D;&#x0A;- Original project: &apos;AYPI.V1.4.6&apos;&#x0D;&#x0A;- Original element: &apos;com.aypi.utils.inter.surchMcBalise&apos;&#x0D;&#x0A;- Renamed element: &apos;com.aypi.utils.inter.SurchMcBalise&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;surchMcBalise&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.aypi.utils.inter{surchMcBalise.java[surchMcBalise" matchStrategy="1" name="SurchMcBalise" qualified="false" references="true" similarDeclarations="false" stamp="1546884506151" textual="false" version="1.0"/>
+</session>

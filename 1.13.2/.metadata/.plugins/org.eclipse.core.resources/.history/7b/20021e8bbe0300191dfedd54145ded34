@@ -1,0 +1,5 @@
+package com.aypi.utils.xml.script;
+
+public enum MathOperator {
+
+}
