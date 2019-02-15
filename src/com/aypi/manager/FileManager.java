@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -162,5 +163,48 @@ public class FileManager {
 	public File getFile() {
 		return file;
 	}
+	
+	public void delete() {
+		File[] contents = file.listFiles();
+        if (contents != null) {
+            for (File f : contents) {
+                if (! Files.isSymbolicLink(f.toPath())) {
+                    delete(f);
+                }
+            }
+        }
+        file.delete();
+	}
+	
+	
+    public static void copyFullRecursive(File src, File dest) throws IOException
+    {
+        if (src.isDirectory())
+        {
+            File dir = new File(dest, src.getName());
+            dir.mkdir();
+            
+            File[] list = src.listFiles();
+            if (list != null)
+                for (File fic : list)
+                    copyFullRecursive(fic, dir);
+        }
+        else
+        {
+            Files.copy(src.toPath(), new File(dest, src.getName()).toPath());
+        }
+    }
+    
+    public static void delete(File file) {
+        File[] contents = file.listFiles();
+        if (contents != null) {
+            for (File f : contents) {
+                if (! Files.isSymbolicLink(f.toPath())) {
+                    delete(f);
+                }
+            }
+        }
+        file.delete();
+    }
 
 }

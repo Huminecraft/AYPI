@@ -6,6 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Librairies/Spigot/spigot-1.13.2.jar" sourcepath="/HumineShop/C:/Users/allan/Desktop/jeux/Minecraft/spigot-sources.jar"/>
+	<classpathentry kind="lib" path="D:/programmation/java/workspace/Huminecraft/Librairies/Spigot/spigot-1.13.2.jar"/>
 	<classpathentry kind="output" path="1.13.2/AYPI.V1.4/bin"/>
 </classpath>
