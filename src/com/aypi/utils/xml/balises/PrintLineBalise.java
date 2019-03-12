@@ -45,6 +45,7 @@ public class PrintLineBalise extends FileManagerBaliseAdaptor {
 		}
 		xmlFile.getScriptManager().addListScript(ls);
 		xmlFile.getScriptManager().addVariable(new Variable("%LINES_LIST_LENGTH%", ""+ls.getValues().size()));
+		System.out.println("DEBUG:          "+ls.getValues().size()+" "+xmlFile.getScriptManager().getVariable("%LINES_LIST_LENGTH%").getValue());
 	}
 
 	@Override

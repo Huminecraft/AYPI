@@ -57,6 +57,19 @@ public class FileManager {
 		
 	}
 	
+	public void insertLine(String text, int line) {
+		ArrayList<String> temp = getTextFile();
+		temp.add(line, text);
+		clearFile();
+		printList(temp);
+	}
+	
+	public void insertLine(ArrayList<String> text, int line) {
+		for (String t : text) {
+			insertLine(t, line);
+		}
+	}
+	
 	public void removeAllLine(String line) {
 		
 		ArrayList<String> list = new ArrayList<>();
