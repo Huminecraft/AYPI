@@ -189,6 +189,7 @@ public class Timer implements Runnable
 	{
 		this.task.cancel();
 		this.start = false;
+		Aypi.getTimerManager().removeTimer(this);
 		Bukkit.getPluginManager().callEvent(new FinishTimerEvent(this));
 	}
 
