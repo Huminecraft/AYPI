@@ -149,9 +149,9 @@ public class Result {
 	 * @return le nombre de ligne dans la table
 	 * @throws SQLException
 	 */
-	public int getNumberOfRow() throws SQLException {
+	public int getRowCount() throws SQLException {
 		if(this.resultSet.next())
-			return 1 + getNumberOfRow();
+			return 1 + getRowCount();
 		else
 			return 0;
 	}
@@ -164,4 +164,48 @@ public class Result {
 		this.resultSet.beforeFirst();
 	}
 
+	/**
+	 * Permet d'aller a la ligne suivante de la table
+	 * @return vrai si il reste des lignes a parcourir, sinon false
+	 * @throws SQLException 
+	 */
+	public boolean next() throws SQLException {
+		return this.resultSet.next();
+	}
+	
+	/**
+	 * @return le nombre de colonne dans la table
+	 * @throws SQLException
+	 */
+	public int getColumnCount() throws SQLException {
+		return this.meta.getColumnCount();
+	}
+	
+	/**
+	 * Renvoie le contenu par rapport a la ligne actuelle
+	 * @param n
+	 * @return le contenu
+	 * @throws SQLException
+	 */
+	public String getString(int n) throws SQLException {
+		return this.resultSet.getString(n);
+	}
+	
+	/**
+	 * Renvoie le contenu par rapport a la ligne actuelle
+	 * @param n
+	 * @return le contenu
+	 * @throws SQLException
+	 */
+	public int getInt(int n) throws SQLException {
+		return this.resultSet.getInt(n);
+	}
+	
+	/**
+	 * permet de fermer la connexion avec la base de donnee
+	 * @throws SQLException
+	 */
+	public void close() throws SQLException {
+		this.resultSet.close();
+	}
 }
