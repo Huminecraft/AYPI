@@ -57,16 +57,16 @@ public class Result {
 			stream.flush();
 		}
 		
-		stream.write("============================\n");
+		stream.write("\n============================\n");
 		stream.flush();
 		
 		while (this.resultSet.next()) {
 			for (int i = 1; i <= this.meta.getColumnCount(); i++) {
 				stream.write("|\t" + this.resultSet.getString(i) + "\t|");
 				stream.flush();
-				stream.write("-------------------------");
-				stream.flush();
 			}
+			stream.write("\n-------------------------\n");
+			stream.flush();
 		}
 		
 	}
