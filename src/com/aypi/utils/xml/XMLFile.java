@@ -58,9 +58,10 @@ public class XMLFile {
 		        	if (m instanceof VariableBalise || m instanceof ListScriptBalise || m instanceof ListScriptAddBalise || m instanceof ListScriptRemoveBalise) {
 		        		m.execute(null, this);
 		        	}
-	        	}
-	        	
-	        } else {
+	        	}	        	
+	        }
+	        else
+	        {
 	        	System.out.println("ERROR: your balise root should be 'server'.");
 	        }
 			
@@ -109,12 +110,12 @@ public class XMLFile {
 	private ArrayList<MCBalise> createBalise(NodeList node) {
 		
 		ArrayList<MCBalise> mcBalises = new ArrayList<MCBalise>();
-		
+
 		for (int i = 0 ; i < node.getLength() ; i++) {
     		
 			if (node.item(i).getNodeType() == Node.ELEMENT_NODE) {
 				for (MCBalise mc : Aypi.getXMLFileManager().getMCBalises()) {
-					if (node.item(i).getNodeName().equalsIgnoreCase(mc.getName())) {
+					if (node.item(i).getNodeName().equalsIgnoreCase(mc.getName())) {				
 						MCBalise mb = mc.getInstance();
 						mb.setUpAttributes(node.item(i).getAttributes());
 						mb.setContent(node.item(i).getTextContent(), this, 0);

@@ -23,11 +23,21 @@ public class LocationBalise extends MCBalise {
 	
 	private boolean playerloc;
 	
-	public LocationBalise() {
+	public LocationBalise(){
 		super(NAME);
 		playerloc = false;
 	}
-
+	
+	public LocationBalise(String overrideName){
+		super(overrideName);
+		playerloc = false;
+	}
+	
+	public Location GetLocation()
+	{
+		return location;
+	}
+	
 	@Override
 	public void setUpCustomAttributes(NamedNodeMap namedNodeMap) {
 		
@@ -56,7 +66,6 @@ public class LocationBalise extends MCBalise {
 	@Override
 	public void customExecute(Player player, XMLFile xmlFile) {
 		
-		
 		if (playerloc) {
 			
 			location = player.getLocation();
@@ -71,7 +80,7 @@ public class LocationBalise extends MCBalise {
 			world = getString(xmlFile.getScriptManager().compile(sworld, 0), xmlFile);
 			x = Double.parseDouble(xmlFile.getScriptManager().compile(sx, 0));
 			y = Double.parseDouble(xmlFile.getScriptManager().compile(sy, 0));
-			z = Double.parseDouble(xmlFile.getScriptManager().compile(sz, 0));
+			z = Double.parseDouble(xmlFile.getScriptManager().compile(sz, 0));	
 			
 			location = new Location(Bukkit.getWorld(world), x, y, z);
 		}

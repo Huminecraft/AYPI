@@ -13,16 +13,22 @@ import com.aypi.utils.ZonePriorityBuffer;
 public class PlayerMove implements Listener {
 	
 	@EventHandler
-	public void onPlayerMove(PlayerMoveEvent e) {
+	public void onPlayerMove(PlayerMoveEvent e)
+	{
+		//To optimize, just update the zones when we find a new chunk 
+		if (e.getFrom().getChunk() == e.getTo().getChunk())
+		{
+			return;
+		}
 		
 		Player player = e.getPlayer();
 		Location loc = player.getLocation();
 		ZonePriorityBuffer zpb = new ZonePriorityBuffer();
 		
-		boolean isInZone = false;
+		boolean isInZone = false;		
 		
 		for (Zone zone : Aypi.getZoneManager().getZones()) {
-			if (zone.containLocation(new Location(loc.getWorld(), loc.getBlockX(), loc.getBlockY(), loc.getBlockZ()))) {
+			if (zone.containLocation(loc)) {
 				zpb.addZone(zone);
 				isInZone = true;
 			}

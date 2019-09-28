@@ -10,6 +10,7 @@ import com.aypi.utils.xml.balises.DeletLineBalise;
 import com.aypi.utils.xml.balises.FalseBalise;
 import com.aypi.utils.xml.balises.FileManagerBalise;
 import com.aypi.utils.xml.balises.IfBalise;
+import com.aypi.utils.xml.balises.ItemBalise;
 import com.aypi.utils.xml.balises.ListScriptAddBalise;
 import com.aypi.utils.xml.balises.ListScriptBalise;
 import com.aypi.utils.xml.balises.ListScriptRemoveBalise;
@@ -65,6 +66,7 @@ public class XMLFileManager {
 		mcbs.add(new DeletLineBalise());
 		mcbs.add(new ClearFileBalise());
 		mcbs.add(new DeletFileBalise());
+		mcbs.add(new ItemBalise());
 	}
 	
 	public void addXMLFile(XMLFile xmlFile) {

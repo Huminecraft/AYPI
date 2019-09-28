@@ -36,7 +36,6 @@ public class EntityDamage implements Listener {
 	@EventHandler
 	public void onEntityDamageByEntityEvent(EntityDamageByEntityEvent e) {
 		Entity entity = e.getEntity();
-
 		Location loc = entity.getLocation();
 		ZonePriorityBuffer zpb = new ZonePriorityBuffer();
 		

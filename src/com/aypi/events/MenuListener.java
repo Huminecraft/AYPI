@@ -27,16 +27,19 @@ public class MenuListener implements Listener {
 
 		Button toPush = null;
 
-		for (Menu menu : Aypi.getMenuManager().getMenus()) {
-
-			if (event.getWhoClicked().getName().equalsIgnoreCase(menu.getPlayer().getName())) {
-
-				if (event.getInventory().getName().equalsIgnoreCase(menu.getTitle())) {
+		for (Menu menu : Aypi.getMenuManager().getMenus())
+		{
+			if (event.getWhoClicked().getName().equalsIgnoreCase(menu.getPlayer().getName()))
+			{				
+				if (event.getView().getTitle().equalsIgnoreCase(menu.getTitle()))
+				{
 					event.setCancelled(true);
 				}
 
-				for (Button button : menu.getButtons()) {
-					if (button.getName().equalsIgnoreCase(item.getItemMeta().getDisplayName())) {
+				for (Button button : menu.getButtons())
+				{
+					if (button.getName().equalsIgnoreCase(item.getItemMeta().getDisplayName()))
+					{
 						toPush = button;
 					}
 				}
