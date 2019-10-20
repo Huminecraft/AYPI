@@ -13,25 +13,24 @@ import com.aypi.utils.ZonePriorityBuffer;
 public class PlayerPlaceBlock implements Listener {
 	
 	@EventHandler
-	public void playerPlaceBlock(BlockPlaceEvent e) {
-		
+	public void playerPlaceBlock(BlockPlaceEvent e)
+	{		
 		Player player = e.getPlayer();
 		Location loc = e.getBlock().getLocation();
 		ZonePriorityBuffer zpb = new ZonePriorityBuffer();
 			
-		for (Zone zone : Aypi.getZoneManager().getZones()) {
-			if(zone.containLocation(new Location(loc.getWorld(), loc.getBlockX(), loc.getBlockY(), loc.getBlockZ()))) {
+		for (Zone zone : Aypi.getZoneManager().getZones())
+		{
+			if(zone.containLocation(new Location(loc.getWorld(), loc.getBlockX(), loc.getBlockY(), loc.getBlockZ())))
+			{
+				System.out.println("FIND ZONE " + zone);
 				zpb.addZone(zone);
 			}
 		}
 		
-		for (Zone zone : zpb.getPriorityZones()) {
+		for (Zone zone : zpb.getPriorityZones())
+		{
 			zone.getZoneListener().onPlayerTryToPlaceBlock(player, e.getBlock(), e);
-		}
-		
-		
+		}		
 	}
-	
-	
-
 }

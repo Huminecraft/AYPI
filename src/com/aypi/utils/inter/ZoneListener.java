@@ -22,7 +22,8 @@ public interface ZoneListener {
 	public abstract void onPlayerEnterZone(Player player);
 	public abstract void onPlayerExitZone(Player player);
 	public abstract void onDamage(Entity entity, EntityDamageEvent e);
-	public abstract void onDamageByEntity(Entity entity, EntityDamageByEntityEvent e);
+	public abstract void onEntitySuffersDamages(Entity entity, EntityDamageByEntityEvent e);
+	public abstract void onEntityMakesDamages(Entity entity, EntityDamageByEntityEvent e);
 	public abstract void onEntityDeath(Entity entity, EntityDeathEvent e);
 	public abstract void onExplosionPrime(ExplosionPrimeEvent e);
 	public abstract void onPortalCreate(PortalCreateEvent e);

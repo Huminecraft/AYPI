@@ -6,13 +6,13 @@ import org.w3c.dom.NamedNodeMap;
 import com.aypi.utils.xml.MCBalise;
 import com.aypi.utils.xml.XMLFile;
 
-public class ItemBalise extends MCBalise
+public class IDBalise extends MCBalise
 {
-	public static final String NAME = "item";
+	public static final String NAME = "ID";
 	
-	private String item;
+	private int ID;
 	
-	public ItemBalise()
+	public IDBalise()
 	{
 		super(NAME);
 	}
@@ -25,16 +25,17 @@ public class ItemBalise extends MCBalise
 	@Override
 	public void customExecute(Player player, XMLFile xmlFile)
 	{
-		item = getString(xmlFile.getScriptManager().compile(getContent(), 0), xmlFile);		
-	}
-
-	@Override
-	public MCBalise getInstance() {
-		return new ItemBalise();
+		ID = Integer.parseInt(xmlFile.getScriptManager().compile(getContent(), 0));		
 	}
 	
-	public String getItem()
+	@Override
+	public MCBalise getInstance()
 	{
-		return item;
+		return new IDBalise();
+	}
+	
+	public int getID()
+	{
+		return ID;
 	}
 }

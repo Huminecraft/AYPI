@@ -24,9 +24,10 @@ public class Menu {
 	private int task;
 
 	/*
-	 * Class menu permettant de creer une interface graphique et de mieux le gerer
+	 * Class menu permettant de créer une interface graphique et de mieux le gerer
 	 */
-	public Menu(Player player, String title, int size, boolean security) {
+	public Menu(Player player, String title, int size, boolean security)
+	{
 		Aypi.getMenuManager().addMenu(this);
 
 		while (size % 9 != 0) {
@@ -47,7 +48,8 @@ public class Menu {
 	public Menu(String title, int size, boolean security) {
 		Aypi.getMenuManager().addMenu(this);
 
-		while (size % 9 != 0) {
+		while (size % 9 != 0)
+		{
 			size++;
 		}
 

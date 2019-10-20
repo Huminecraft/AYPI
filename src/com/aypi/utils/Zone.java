@@ -3,8 +3,10 @@ package com.aypi.utils;
 import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
@@ -20,6 +22,7 @@ public class Zone {
 	
 	
 	private Square square;
+	private World world;
 	private ZoneListener zoneListener;
 	
 	private boolean asWhiteList = false;
@@ -29,20 +32,21 @@ public class Zone {
 	
 	private int priority = PRIORITY_BASIC;
 	
-	public Zone(Square square, ZoneListener zoneListener) {
-		constructor(square, zoneListener);
+	public Zone(Square square, World world, ZoneListener zoneListener) {
+		constructor(square, world, zoneListener);
 	}
 	
-	public Zone(Square square, ZoneListener zoneListener, int priority) {
+	public Zone(Square square, World world, ZoneListener zoneListener, int priority) {
 		this.priority = priority;
-		constructor(square, zoneListener);
+		constructor(square, world, zoneListener);
 	}
 	
-	private void constructor(Square square, ZoneListener zoneListener) {
+	private void constructor(Square square, World world, ZoneListener zoneListener) {
 		Aypi.getZoneManager().addZone(this);
 		this.square = square;
+		this.world = world;
 		this.zoneListener = zoneListener;
-		updatePlayerInZone();
+		//updatePlayerInZone(); //still useful ? just used in the constructor and never later, so the array is not relevant
 	}
 	
 	public void removeZone() {
@@ -51,6 +55,11 @@ public class Zone {
 	
 	public Square getSquare() {
 		return square;
+	}
+	
+	public World getWorld()
+	{
+		return world;
 	}
 	
 	public void setWhiteList(boolean value) {
@@ -73,8 +82,14 @@ public class Zone {
 		return zoneListener;
 	}
 	
-	public boolean containLocation(Location loc) {
-		return square.containLocation(loc);
+	public boolean containLocation(Location loc)
+	{
+		return world == loc.getWorld() && square.containLocation(loc);
+	}
+	
+	public boolean containsChunk(Chunk chunk) {
+		//TODO :WARNING WHEN THE CHUNK WILL DEPENDS ON THE Y TOO
+		return world == chunk.getWorld() &&  square.containLocation(new Location(chunk.getWorld(), chunk.getX()*16, 64, chunk.getZ()*16));
 	}
 	
 	public int getPriority() {
@@ -82,7 +97,7 @@ public class Zone {
 	}
 	
 	public boolean entityIsInZone(Entity entity) {
-		return containLocation(entity.getLocation());
+		return world == entity.getWorld() && containLocation(entity.getLocation());
 	}
 	
 	public void updatePlayerInZone() {
@@ -103,7 +118,7 @@ public class Zone {
 	
 	public boolean entityListContainPlayer(Player player) {
 		for (Entity entity : entities) {
-			if (entity instanceof Player && entity.getName().equalsIgnoreCase(player.getName())) {
+			if (entity instanceof Player && entity.getUniqueId().equals(player.getUniqueId())) {
 				return true;
 			}
 		}

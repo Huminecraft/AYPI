@@ -1,5 +1,6 @@
 package com.aypi.events;
 
+import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,20 +16,28 @@ public class PlayerMove implements Listener {
 	@EventHandler
 	public void onPlayerMove(PlayerMoveEvent e)
 	{
+		if (e.getTo().distance(e.getFrom()) == 0)
+		{
+			return;
+		}
 		//To optimize, just update the zones when we find a new chunk 
 		if (e.getFrom().getChunk() == e.getTo().getChunk())
 		{
 			return;
 		}
 		
+		Chunk chunk = e.getTo().getChunk();
 		Player player = e.getPlayer();
-		Location loc = player.getLocation();
+		//WARNING WHEN THE CHUNK WILL DEPENDS ON THE Y TOO
+		//Location loc = new Location(c.getWorld(), c.getX()*16, 64, c.getZ()*16);
+		Location oldLoc = e.getFrom();
 		ZonePriorityBuffer zpb = new ZonePriorityBuffer();
 		
 		boolean isInZone = false;		
 		
 		for (Zone zone : Aypi.getZoneManager().getZones()) {
-			if (zone.containLocation(loc)) {
+			if (zone.containsChunk(chunk))
+			{
 				zpb.addZone(zone);
 				isInZone = true;
 			}
