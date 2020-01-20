@@ -38,6 +38,7 @@ public class Aypi extends JavaPlugin {
 		timerManager = new TimerManager();
 		particleManager = new ParticleManager();
 		xmlFileManager = new XMLFileManager();
+		System.out.println("SML File Manager initialise");
 		errorManager = new ErrorManager();
 		new EventManager(this);
 		

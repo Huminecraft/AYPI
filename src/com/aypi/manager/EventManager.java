@@ -19,7 +19,7 @@ import com.aypi.events.ExplosionPrime;
 public class EventManager {
 
 	/*
-	 * Class gÃ©rant les Ã©venements de l'AYPI
+	 * Class gérant les événements de l'AYPI
 	 * 
 	 * @param plugin Le plugin AYPI
 	 */

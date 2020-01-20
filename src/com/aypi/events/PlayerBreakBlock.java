@@ -15,7 +15,7 @@ public class PlayerBreakBlock implements Listener {
 	@EventHandler
 	public void onPlayerBreakBlock(BlockBreakEvent e) {
 		Player player = e.getPlayer();
-
+		
 		Location loc = e.getBlock().getLocation();
 		ZonePriorityBuffer zpb = new ZonePriorityBuffer();
 		

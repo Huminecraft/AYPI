@@ -53,7 +53,7 @@ public class Square {
 
 		locations = new ArrayList<Location>();
 
-		for (int y = 0; pos1.getBlockY() + y <= pos2.getBlockY(); y++) {
+		/*for (int y = 0; pos1.getBlockY() + y <= pos2.getBlockY(); y++) {
 			for (int x = 0; pos1.getBlockX() + x <= pos2.getBlockX(); x++) {
 				for (int z = 0; pos1.getBlockZ() + z <= pos2.getBlockZ(); z++) {
 
@@ -62,7 +62,7 @@ public class Square {
 
 				}
 			}
-		}
+		}*/
 
 	}
 

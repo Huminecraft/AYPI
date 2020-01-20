@@ -26,13 +26,13 @@ public class Timer implements Runnable
 	
 	
 	/*
-	 * Class Timer permettant de gerer un compte ï¿½ rebour ï¿½ multi-Thread
+	 * Class Timer permettant de gerer un compte à rebourd à multi-Thread
 	 *
 	 *
 	 *
 	 * Class constructeur de Timer
 	 * 
-	 * @param plugin Plugin dans lequel le constructeur est appeller
+	 * @param plugin Plugin dans lequel le constructeur est appellé
 	 */
 	public Timer(Plugin plugin)
 	{
@@ -102,7 +102,7 @@ public class Timer implements Runnable
 	 * 
 	 * @param plugin Plugin dans lequel le constructeur est appeller
 	 * 
-	 * @param duration Temps du compte ï¿½ rebours en SECONDE
+	 * @param duration Temps du compte à rebours en SECONDE
 	 * 
 	 * @param listener Action que doit faire le timer une fois terminer
 	 */
@@ -168,7 +168,7 @@ public class Timer implements Runnable
 	
 	
 	/*
-	 * Demarrer le compte a rebours
+	 * Demarrer le compte a rebourd
 	 */
 	public void start()
 	{
