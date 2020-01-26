@@ -23,7 +23,6 @@ public class PlayerPlaceBlock implements Listener {
 		{
 			if(zone.containLocation(new Location(loc.getWorld(), loc.getBlockX(), loc.getBlockY(), loc.getBlockZ())))
 			{
-				System.out.println("FIND ZONE " + zone);
 				zpb.addZone(zone);
 			}
 		}

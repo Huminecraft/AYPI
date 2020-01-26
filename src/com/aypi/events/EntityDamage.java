@@ -41,11 +41,9 @@ public class EntityDamage implements Listener {
 		Entity damager = e.getDamager();
 		if (damager instanceof Projectile && ((Projectile)damager).getShooter() instanceof Entity)
 		{
-			System.out.println("LE DAMAGER EST UN PROJECTILE, la source est " + ((Projectile)damager).getShooter() );
 			damager = (Entity) ((Projectile)damager).getShooter();
 		}
 		
-		System.out.println("LE DAMAGER EST " + damager);
 		Location loc = entity.getLocation();
 		ZonePriorityBuffer zpbForEntityGetDamage = new ZonePriorityBuffer();
 		ZonePriorityBuffer zpbForEntityMakeDamage = new ZonePriorityBuffer();
