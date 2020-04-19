@@ -8,5 +8,5 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="/Librairies/Spigot/spigot-1.13.2.jar"/>
 	<classpathentry kind="lib" path="utils/postgresql-42.2.5.jar"/>
-	<classpathentry kind="output" path="1.13.2/AYPI.V1.4/bin"/>
+	<classpathentry kind="output" path="1.15.2/AYPIv1.4.8/AYPI.jar"/>
 </classpath>

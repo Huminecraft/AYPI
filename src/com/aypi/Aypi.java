@@ -18,7 +18,7 @@ import com.aypi.utils.xml.XMLFile;
 
 public class Aypi extends JavaPlugin {
 
-	final static String VERSION = "1.4.6";
+	final static String VERSION = "1.4.8";
 	private static MenuManager menuManager;
 	private static ZoneManager zoneManager;
 	private static TimerManager timerManager;
